@@ -42,3 +42,38 @@
   .text-accent {
     color: var(--orange-roughy);
   }
+
+  /* Navbar */
+
+  .navbar {
+    background-color: var(--rangoon-green);
+    font-family: var(--font-heading);
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+    color: var(--harvest-gold);
+  }
+  
+  .navbar .nav-link {
+    color: var(--zorba);
+  }
+  
+  .navbar .nav-link:hover {
+    color: var(--harvest-gold);
+  }
+  
+  .dropdown-menu {
+    background-color: var(--dallas);
+  }
+  
+  .dropdown-item {
+    color: var(--zorba);
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--orange-roughy);
+    color: #fff;
+  }
+
+  
