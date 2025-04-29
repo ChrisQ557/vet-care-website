@@ -1,7 +1,44 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-body h1 {
-    font-family: 'Lora', serif;
-    color: red;
-} 
+/* Root Variables */
+:root {
+    /* Font Families */
+    --font-heading: 'Lora', serif;
+    --font-body: 'Nunito', sans-serif;
+  
+    /* Color Palette by https://imagecolorpicker.com */
+    --harvest-gold: #dcbc7f;
+    --rangoon-green: #272818;
+    --potters-clay: #926332;
+    --dallas: #674822;
+    --kelp: #474f32;
+    --green-smoke: #a6a86c;
+    --go-ben: #6c6f44;
+    --orange-roughy: #b8511d;
+    --zorba: #a49c94;
+    --corduroy: #5e6060;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: var(--font-body);
+    color: var(--rangoon-green);
+    background-color: var(--green-smoke);
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--potters-clay);
+  }
+  
+  /* Utility Classes */
+  .bg-primary {
+    background-color: var(--harvest-gold);
+  }
+  
+  .text-accent {
+    color: var(--orange-roughy);
+  }
