@@ -65,6 +65,7 @@
   
   .dropdown-menu {
     background-color: var(--dallas);
+    text-align: center;
   }
   
   .dropdown-item {
