@@ -76,4 +76,36 @@
     color: #fff;
   }
 
+  footer {
+    background-color: var(--rangoon-green);
+    color: var(--zorba);
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .footer-heading {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--harvest-gold);
+  }
+  
+  .footer a {
+    color: var(--green-smoke);
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+    color: var(--orange-roughy);
+  }
+  
+  .social-icons a {
+    color: var(--harvest-gold);
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  hr {
+    border-color: var(--go-ben);
+  }
   
