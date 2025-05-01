@@ -12,7 +12,7 @@
   <meta name="author" content="Christopher Quinones">
   <title>Vet Care website | Home</title>
 
-  <!-- Fav icons by favicon.io -->
+  <!-- favicons by favicon.io -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
@@ -26,8 +26,10 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-  <!-- Navbar -->
+<!-- classes on body to work with mt-auto on footer to push it to the bottom -->
+<body class="d-flex flex-column min-vh-100"
+  
+<!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <span class="navbar-brand ms-3 d-flex align-items-center">
@@ -65,8 +67,46 @@
   </nav>
 
   <!-- Main content -->
-  <main class="flex-fill">
-  
+  <main>
+    <h1 class="visually-hidden">Veterinary Care for Cats and Dogs – Vaccines, Grooming, and Nutrition</h1>
+    <div id="vetCareCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner shadow-lg">
+        <div class="carousel-item active">
+          <img src="assets/images/pexels-tima-miroshnichenko-6130984.jpg" class="d-block w-100" alt="Cat getting care">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Cat Care</h5>
+            <p>Essential grooming and checkups for your feline friend.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/pexels-pranidchakan-boonrom-101111-1350591.jpg" class="d-block w-100" alt="Dog vaccination">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Vaccinations</h5>
+            <p>Keeping your pets protected and healthy.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/pexels-goochie-poochie-19145888.jpg" class="d-block w-100" alt="Dog bathing">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Hygiene Services</h5>
+            <p>Regular baths and grooming services available.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </main>
 
   <footer class="footer mt-auto py-4" id="siteFooter">

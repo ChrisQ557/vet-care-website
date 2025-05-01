@@ -3,110 +3,135 @@
 
 /* Root Variables */
 :root {
-    /* Font Families */
-    --font-heading: 'Lora', serif;
-    --font-body: 'Nunito', sans-serif;
-  
-    /* Color Palette by https://imagecolorpicker.com */
-    --harvest-gold: #dcbc7f;
-    --rangoon-green: #272818;
-    --potters-clay: #926332;
-    --dallas: #674822;
-    --kelp: #474f32;
-    --green-smoke: #a6a86c;
-    --go-ben: #6c6f44;
-    --orange-roughy: #b8511d;
-    --zorba: #a49c94;
-    --corduroy: #5e6060;
-  }
-  
-  /* Global Styles */
-  body {
-    font-family: var(--font-body);
-    color: var(--rangoon-green);
-    background-color: var(--green-smoke);
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--potters-clay);
-  }
-  
-  /* Utility Classes */
-  .bg-primary {
-    background-color: var(--harvest-gold);
-  }
-  
-  .text-accent {
-    color: var(--orange-roughy);
-  }
+  /* Font Families */
+  --font-heading: 'Lora', serif;
+  --font-body: 'Nunito', sans-serif;
 
-  /* Navbar */
+  /* Color Palette by https://imagecolorpicker.com */
+  --harvest-gold: #dcbc7f;
+  --rangoon-green: #272818;
+  --potters-clay: #926332;
+  --dallas: #674822;
+  --kelp: #474f32;
+  --green-smoke: #a6a86c;
+  --go-ben: #6c6f44;
+  --orange-roughy: #b8511d;
+  --zorba: #a49c94;
+  --corduroy: #5e6060;
+}
 
-  .navbar {
-    background-color: var(--rangoon-green);
-    font-family: var(--font-heading);
-  }
+/* Global Styles */
+body {
+  font-family: var(--font-body);
+  color: var(--rangoon-green);
+  background-color: var(--green-smoke);
+  margin: 0;
+  padding: 0;
+}
 
-  .navbar-brand {
-    font-size: 1.4rem;
-    color: var(--harvest-gold);
-  }
-  
-  .navbar .nav-link {
-    color: var(--zorba);
-  }
-  
-  .navbar .nav-link:hover {
-    color: var(--harvest-gold);
-  }
-  
-  .dropdown-menu {
-    background-color: var(--dallas);
-    text-align: center;
-  }
-  
-  .dropdown-item {
-    color: var(--zorba);
-  }
-  
-  .dropdown-item:hover {
-    background-color: var(--orange-roughy);
-    color: #fff;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--potters-clay);
+}
 
-  footer {
-    background-color: var(--rangoon-green);
-    color: var(--zorba);
-    font-family: 'Nunito', sans-serif;
-  }
-  
-  .footer-heading {
-    font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-    color: var(--harvest-gold);
-  }
-  
-  .footer a {
-    color: var(--green-smoke);
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-    color: var(--orange-roughy);
-  }
-  
-  .social-icons a {
-    color: var(--harvest-gold);
-    margin-right: 10px;
-    font-size: 1.2rem;
-  }
-  
-  hr {
-    border-color: var(--go-ben);
-  }
-  
+/* Utility Classes */
+.bg-primary {
+  background-color: var(--harvest-gold);
+}
+
+.text-accent {
+  color: var(--orange-roughy);
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: var(--rangoon-green);
+  font-family: var(--font-heading);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  color: var(--harvest-gold);
+}
+
+.navbar .nav-link {
+  color: var(--zorba);
+}
+
+.navbar .nav-link:hover {
+  color: var(--harvest-gold);
+}
+
+.dropdown-menu {
+  background-color: var(--dallas);
+  text-align: center;
+}
+
+.dropdown-item {
+  color: var(--zorba);
+}
+
+.dropdown-item:hover {
+  background-color: var(--orange-roughy);
+  color: #fff;
+}
+
+/* Footer */
+
+footer {
+  background-color: var(--rangoon-green);
+  color: var(--zorba);
+  font-family: 'Nunito', sans-serif;
+}
+
+.footer-heading {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--harvest-gold);
+}
+
+.footer a {
+  color: var(--green-smoke);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--orange-roughy);
+}
+
+.social-icons a {
+  color: var(--harvest-gold);
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+hr {
+  border-color: var(--go-ben);
+}
+
+/* Carousel */
+.carousel-caption {
+  background-color: rgba(39, 40, 24, 0.6);
+  /* semi-transparent Rangoon Green */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.h5-carousel-caption {
+  color: white;
+}
+
+.carousel-inner img {
+  height: 900px;
+  object-fit: cover;
+}
+
