@@ -82,6 +82,43 @@ h6 {
   color: #fff;
 }
 
+/* Carousel */
+.carousel-caption {
+  background-color: rgba(39, 40, 24, 0.6);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.h5-carousel-caption {
+  color: white;
+}
+
+.carousel-inner img {
+  height: 80vh;
+  object-fit: cover;
+}
+
+/* Services */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  color: var(--harvest-gold);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: var(--corduroy);
+}
+
 /* Footer */
 
 footer {
@@ -117,21 +154,5 @@ hr {
   border-color: var(--go-ben);
 }
 
-/* Carousel */
-.carousel-caption {
-  background-color: rgba(39, 40, 24, 0.6);
-  /* semi-transparent Rangoon Green */
-  border-radius: 0.5rem;
-  padding: 1rem;
-  color: #fff;
-}
 
-.h5-carousel-caption {
-  color: white;
-}
-
-.carousel-inner img {
-  height: 900px;
-  object-fit: cover;
-}
 
