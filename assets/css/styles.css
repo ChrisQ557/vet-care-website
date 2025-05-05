@@ -142,6 +142,13 @@ h6 {
   background-color: var(--potters-clay);
 }
 
+/* Dog care section */
+.dog-care-section {
+  background-color: var(--zorba); 
+  padding: 3rem 1rem;
+  border-radius: 1rem;
+}
+
 /* Footer */
 footer {
   background-color: var(--rangoon-green);
