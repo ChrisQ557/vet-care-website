@@ -67,50 +67,49 @@
 
   <!-- Main content -->
   <main>
-     
-      <h1 class="visually-hidden">Veterinary Care for Cats and Dogs – Vaccines, Grooming, and Nutrition</h1>
-      <div id="vetCareCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner shadow-lg">
-          <div class="carousel-item active">
-            <img src="assets/images/pexels-tima-miroshnichenko-6130984.jpg" class="d-block w-100"
-              alt="Cat getting care">
-            <div class="carousel-caption d-block">
-              <h5 class="h5-carousel-caption">Cat Care</h5>
-              <p>Essential grooming and checkups for your feline friend.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/pexels-pranidchakan-boonrom-101111-1350591.jpg" class="d-block w-100"
-              alt="Dog vaccination">
-            <div class="carousel-caption d-block">
-              <h5 class="h5-carousel-caption">Vaccinations</h5>
-              <p>Keeping your pets protected and healthy.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/pexels-goochie-poochie-19145888.jpg" class="d-block w-100" alt="Dog bathing">
-            <div class="carousel-caption d-block">
-              <h5 class="h5-carousel-caption">Hygiene Services</h5>
-              <p>Regular baths and grooming services available.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+    <h1 class="visually-hidden">Veterinary Care for Cats and Dogs – Vaccines, Grooming, and Nutrition</h1>
+    <div id="vetCareCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div class="vet-section-bg">
+      <div class="carousel-inner shadow-lg">
+        <div class="carousel-item active">
+          <img src="assets/images/pexels-tima-miroshnichenko-6130984.jpg" class="d-block w-100" alt="Cat getting care">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Cat Care</h5>
+            <p>Essential grooming and checkups for your feline friend.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/pexels-pranidchakan-boonrom-101111-1350591.jpg" class="d-block w-100"
+            alt="Dog vaccination">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Vaccinations</h5>
+            <p>Keeping your pets protected and healthy.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/pexels-goochie-poochie-19145888.jpg" class="d-block w-100" alt="Dog bathing">
+          <div class="carousel-caption d-block">
+            <h5 class="h5-carousel-caption">Hygiene Services</h5>
+            <p>Regular baths and grooming services available.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="vet-section-bg">
       <section class="container my-5">
         <h2 class="text-center mb-4">Our Veterinary Services</h2>
         <div class="row g-4">
@@ -156,7 +155,7 @@
           </div>
 
         </div>
-       
+
       </section>
 
       <!-- Dog Care Section -->
@@ -379,6 +378,87 @@
         </div>
       </section>
     </div>
+    <!-- Book section -->
+    <section id="book" class="py-5 book-section">
+      <h2 class="text-center mb-4">Book a Service</h2>
+    
+      <!-- Tab Buttons -->
+      <div class="d-flex justify-content-center mb-4 service-tabs">
+        <button class="btn btn-outline-primary mx-2 tab-button active" data-service="vaccine">Vaccinations</button>
+        <button class="btn btn-outline-primary mx-2 tab-button" data-service="grooming">Grooming & Hygiene</button>
+        <button class="btn btn-outline-primary mx-2 tab-button" data-service="checkup">Health Checkup</button>
+      </div>
+    
+      <!-- Forms -->
+      <div class="form-container">
+        <!-- Vaccination Form -->
+        <form id="form-vaccine" class="service-form active card p-4 mb-3">
+          <h5 class="mb-3">Book Vaccinations</h5>
+          <div class="mb-3">
+            <label for="vaccinePet" class="form-label">Pet Type</label>
+            <select id="vaccinePet" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="petAge" class="form-label">Pet Age (in months)</label>
+            <input type="number" id="petAge" class="form-control" min="1" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Recommended Vaccines</label>
+            <ul id="recommendedVaccines" class="list-group">
+              <li class="list-group-item">Select pet type and age to see recommendations.</li>
+            </ul>
+          </div>
+          <button type="submit" class="btn btn-success">Book Vaccination</button>
+        </form>
+    
+        <!-- Grooming & Hygiene Form -->
+        <form id="form-grooming" class="service-form card p-4 mb-3 d-none">
+          <h5 class="mb-3">Book Grooming & Hygiene</h5>
+          <div class="mb-3">
+            <label for="groomPetType" class="form-label">Pet Type</label>
+            <select id="groomPetType" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="groomService" class="form-label">Service</label>
+            <select id="groomService" class="form-select" required>
+              <option value="bath">Bath</option>
+              <option value="nail">Nail Trim</option>
+              <option value="ear">Ear Cleaning</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Book Grooming</button>
+        </form>
+    
+        <!-- Health Checkup Form -->
+        <form id="form-checkup" class="service-form card p-4 mb-3 d-none">
+          <h5 class="mb-3">Book Health Checkup</h5>
+          <div class="mb-3">
+            <label for="checkupPet" class="form-label">Pet Type</label>
+            <select id="checkupPet" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="symptoms" class="form-label">Symptoms (optional)</label>
+            <textarea id="symptoms" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Book Checkup</button>
+        </form>
+      </div>
+    
+      <!-- Confirmation Output -->
+      <div id="confirmation" class="alert alert-info mt-4 d-none"></div>
+    </section>
   </main>
   <!-- Footer -->
   <footer class="footer mt-auto py-4" id="siteFooter">

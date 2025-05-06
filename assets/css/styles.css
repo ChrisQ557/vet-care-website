@@ -205,6 +205,143 @@ h6 {
   box-shadow: 0 0 0 0.25rem rgba(220, 188, 127, 0.5);
 }
 
+/* Book Section Styling */
+.book-section {
+  background-color: var(--flint); 
+  color: var(--mine-shaft);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; 
+}
+
+/* Title */
+.book-section h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  color: var(--dallas);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form Container */
+.book-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; 
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 30px;
+}
+
+/* Form */
+.book-form {
+  background-color: var(--gray-nickel);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Title */
+.book-form h2 {
+  color: var(--dallas);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+/* Form Fields */
+.book-form input,
+.book-form select,
+.book-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--mine-shaft);
+  background-color: var(--dusty-gray);
+}
+
+/* Focused Inputs */
+.book-form input:focus,
+.book-form select:focus,
+.book-form textarea:focus {
+  border-color: var(--rangoon-green);
+  outline: none;
+}
+
+/* Submit Button */
+.book-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--harvest-gold);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-form button:hover {
+  background-color: var(--orange-roughy);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .book-form {
+    max-width: 90%; 
+    padding: 20px;
+  }
+
+  .book-section h1 {
+    font-size: 2rem; 
+  }
+
+  .book-form-container {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .book-form input,
+  .book-form select,
+  .book-form textarea,
+  .book-form button {
+    font-size: 1rem; 
+  }
+}
+
+/* Book Section Background */
+.book-section {
+  background-image: url('../images/pexels-pixabay-158063.jpg'); 
+  background-size: cover; 
+  background-position: center center;
+  background-attachment: fixed; 
+  color: var(--mine-shaft); 
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; 
+  position: relative;
+}
+
+
 /* Footer */
 footer {
   background-color: var(--rangoon-green);
