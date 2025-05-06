@@ -149,6 +149,62 @@ h6 {
   border-radius: 1rem;
 }
 
+/* Cat care section */
+.cat-care-section {
+  background-color: var(--zorba); 
+  padding: 3rem 1rem;
+  border-radius: 1rem;
+}
+
+/* Accordion card base */
+.accordion-item {
+  background-color: var(--rangoon-green);
+  border: 1px solid var(--potters-clay);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Accordion header button */
+.accordion-button {
+  background-color: var(--dallas);
+  color: var(--harvest-gold);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--orange-roughy);
+  color: #fff;
+}
+/* Make default Bootstrap arrow white */
+.accordion-button::after {
+  filter: brightness(0) invert(1); 
+}
+
+/* Accordion body */
+.accordion-body {
+  background-color: var(--go-ben);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Icon styling */
+.accordion-button i {
+  color: var(--green-smoke);
+}
+
+/* Focus state */
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 188, 127, 0.5);
+}
+
 /* Footer */
 footer {
   background-color: var(--rangoon-green);
@@ -181,4 +237,13 @@ footer {
 
 hr {
   border-color: var(--go-ben);
+}
+
+.vet-section-bg {
+  background-image: url('../images/matt-seymour-9htTVAs3rAM-unsplash.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 0; 
 }

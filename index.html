@@ -27,9 +27,8 @@
 </head>
 
 <!-- classes on body to work with mt-auto on footer to push it to the bottom -->
-<body class="d-flex flex-column min-vh-100"
-  
-  <!-- Navbar -->
+
+<body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <span class="navbar-brand ms-3 d-flex align-items-center">
@@ -68,115 +67,320 @@
 
   <!-- Main content -->
   <main>
-    <h1 class="visually-hidden">Veterinary Care for Cats and Dogs – Vaccines, Grooming, and Nutrition</h1>
-    <div id="vetCareCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+     
+      <h1 class="visually-hidden">Veterinary Care for Cats and Dogs – Vaccines, Grooming, and Nutrition</h1>
+      <div id="vetCareCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#vetCareCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner shadow-lg">
+          <div class="carousel-item active">
+            <img src="assets/images/pexels-tima-miroshnichenko-6130984.jpg" class="d-block w-100"
+              alt="Cat getting care">
+            <div class="carousel-caption d-block">
+              <h5 class="h5-carousel-caption">Cat Care</h5>
+              <p>Essential grooming and checkups for your feline friend.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/pexels-pranidchakan-boonrom-101111-1350591.jpg" class="d-block w-100"
+              alt="Dog vaccination">
+            <div class="carousel-caption d-block">
+              <h5 class="h5-carousel-caption">Vaccinations</h5>
+              <p>Keeping your pets protected and healthy.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/pexels-goochie-poochie-19145888.jpg" class="d-block w-100" alt="Dog bathing">
+            <div class="carousel-caption d-block">
+              <h5 class="h5-carousel-caption">Hygiene Services</h5>
+              <p>Regular baths and grooming services available.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="carousel-inner shadow-lg">
-        <div class="carousel-item active">
-          <img src="assets/images/pexels-tima-miroshnichenko-6130984.jpg" class="d-block w-100" alt="Cat getting care">
-          <div class="carousel-caption d-block">
-            <h5 class="h5-carousel-caption">Cat Care</h5>
-            <p>Essential grooming and checkups for your feline friend.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/pexels-pranidchakan-boonrom-101111-1350591.jpg" class="d-block w-100" alt="Dog vaccination">
-          <div class="carousel-caption d-block">
-            <h5 class="h5-carousel-caption">Vaccinations</h5>
-            <p>Keeping your pets protected and healthy.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/pexels-goochie-poochie-19145888.jpg" class="d-block w-100" alt="Dog bathing">
-          <div class="carousel-caption d-block">
-            <h5 class="h5-carousel-caption">Hygiene Services</h5>
-            <p>Regular baths and grooming services available.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#vetCareCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <section class="container my-5">
-      <h2 class="text-center mb-4">Our Veterinary Services</h2>
-      <div class="row g-4">
-        <!-- Vaccinations -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card service-card text-center p-3 h-100 card-1">
-            <div class="card-body">
-              <i class="bi bi-shield-plus fs-1 service-icon"></i>
-              <h5 class="card-title">Vaccinations</h5>
-              <p class="card-text">Protect your pets with essential, up-to-date vaccines.</p>
+      <div class="vet-section-bg">
+      <section class="container my-5">
+        <h2 class="text-center mb-4">Our Veterinary Services</h2>
+        <div class="row g-4">
+          <!-- Vaccinations -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center p-3 h-100 card-1">
+              <div class="card-body">
+                <i class="bi bi-shield-plus fs-1 service-icon"></i>
+                <h5 class="card-title">Vaccinations</h5>
+                <p class="card-text">Protect your pets with essential, up-to-date vaccines.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Grooming & Hygiene -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card service-card text-center p-3 h-100 card-2">
-            <div class="card-body">
-              <i class="bi bi-scissors fs-1 service-icon"></i>
-              <h5 class="card-title">Grooming & Hygiene</h5>
-              <p class="card-text">Keep your pets clean, healthy, and looking great.</p>
+          <!-- Grooming & Hygiene -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center p-3 h-100 card-2">
+              <div class="card-body">
+                <i class="bi bi-scissors fs-1 service-icon"></i>
+                <h5 class="card-title">Grooming & Hygiene</h5>
+                <p class="card-text">Keep your pets clean, healthy, and looking great.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Nutrition & Food -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card service-card text-center p-3 h-100 card-3">
-            <div class="card-body">
-              <i class="bi bi-bag-heart fs-1 service-icon"></i>
-              <h5 class="card-title">Nutrition & Food</h5>
-              <p class="card-text">Tailored food plans and quality pet nutrition advice.</p>
+          <!-- Nutrition & Food -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center p-3 h-100 card-3">
+              <div class="card-body">
+                <i class="bi bi-bag-heart fs-1 service-icon"></i>
+                <h5 class="card-title">Nutrition & Food</h5>
+                <p class="card-text">Tailored food plans and quality pet nutrition advice.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Health Checkups -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card service-card text-center p-3 h-100 card-4">
-            <div class="card-body">
-              <i class="bi bi-heart-pulse fs-1 service-icon"></i>
-              <h5 class="card-title">Health Checkups</h5>
-              <p class="card-text">Routine exams to keep your furry companions thriving.</p>
+          <!-- Health Checkups -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card service-card text-center p-3 h-100 card-4">
+              <div class="card-body">
+                <i class="bi bi-heart-pulse fs-1 service-icon"></i>
+                <h5 class="card-title">Health Checkups</h5>
+                <p class="card-text">Routine exams to keep your furry companions thriving.</p>
+              </div>
             </div>
           </div>
-        </div>
-    
-      </div>
-    </section>
 
-    <!-- Dog Care Section -->
-<section id="dogCare" class="container my-5 dog-care-section">
-  <h2 class="text-center mb-4">Dog Care</h2>
-  <div class="row g-4 align-items-center">
-    <div class="col-md-6">
-      <img src="assets/images/pexels-cottonbro-5079262.jpg" class="img-fluid rounded shadow" alt="Happy dog being cared for">
+        </div>
+       
+      </section>
+
+      <!-- Dog Care Section -->
+      <!-- role attribute in sections , https://stackoverflow.com/questions/10403138/what-is-the-purpose-of-the-role-attribute-in-html -->
+      <section id="dogCare" class="container my-5 dog-care-section" role="region" aria-label="Dog Care Section">
+        <h2 class="text-center mb-4">Dog Care</h2>
+        <div class="row g-4 align-items-start">
+          <div class="col-md-6">
+            <img src="assets/images/pexels-cottonbro-5079262.jpg" class="img-fluid rounded shadow"
+              alt="Golden retriever receiving grooming care at the vet">
+          </div>
+          <div class="col-md-6">
+            <h3 class="h5 visually-hidden">Dog Care Details</h3> <!-- Hidden heading for screen readers -->
+
+            <p>Our veterinary team offers expert guidance and services to ensure your dog stays healthy, clean, and
+              happy. Below are some of the key areas we focus on:</p>
+
+            <div class="accordion" id="dogCareAccordion">
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingVaccines">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseVaccines" aria-expanded="false" aria-controls="collapseVaccines">
+                    <i class="bi bi-check-circle text-success me-2"></i> Essential Vaccines
+                  </button>
+                </h4>
+                <div id="collapseVaccines" class="accordion-collapse collapse" aria-labelledby="headingVaccines"
+                  data-bs-parent="#dogCareAccordion">
+                  <div class="accordion-body">
+                    Vaccination is one of the most important ways to protect your dog from contagious and potentially
+                    life-threatening diseases. We offer both core vaccines—such as rabies, parvovirus, distemper, and
+                    adenovirus—and non-core vaccines depending on lifestyle, such as leptospirosis or kennel cough.
+                    Puppies require a series of shots, while adult dogs need regular boosters to maintain immunity.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingGrooming">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseGrooming" aria-expanded="false" aria-controls="collapseGrooming">
+                    <i class="bi bi-check-circle text-success me-2"></i> Grooming & Baths
+                  </button>
+                </h4>
+                <div id="collapseGrooming" class="accordion-collapse collapse" aria-labelledby="headingGrooming"
+                  data-bs-parent="#dogCareAccordion">
+                  <div class="accordion-body">
+                    Regular grooming isn’t just for looks—it’s essential for your dog’s health. Our grooming services
+                    include coat brushing, trimming, bathing with dog-safe shampoos, nail clipping, and ear cleaning. We
+                    tailor every session based on your dog’s breed, coat type, and skin sensitivity to keep them clean,
+                    comfortable, and looking their best.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingDental">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseDental" aria-expanded="false" aria-controls="collapseDental">
+                    <i class="bi bi-check-circle text-success me-2"></i> Dental Hygiene
+                  </button>
+                </h4>
+                <div id="collapseDental" class="accordion-collapse collapse" aria-labelledby="headingDental"
+                  data-bs-parent="#dogCareAccordion">
+                  <div class="accordion-body">
+                    Dental health affects your dog’s entire body. Plaque buildup can lead to gum disease, tooth loss,
+                    and even organ damage if bacteria enter the bloodstream. We offer thorough dental checkups,
+                    cleanings under safe anesthesia, and advice on at-home brushing and dental treats. Prevention is key
+                    to avoiding painful issues down the line.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingNutrition">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseNutrition" aria-expanded="false" aria-controls="collapseNutrition">
+                    <i class="bi bi-check-circle text-success me-2"></i> Nutrition Plans
+                  </button>
+                </h4>
+                <div id="collapseNutrition" class="accordion-collapse collapse" aria-labelledby="headingNutrition"
+                  data-bs-parent="#dogCareAccordion">
+                  <div class="accordion-body">
+                    Every dog is different, and their diet should be too. We create customized nutrition plans based on
+                    breed, age, weight, activity level, and health conditions like allergies or kidney issues. Whether
+                    you feed kibble, wet food, or a raw diet, we guide you to make safe, balanced, and effective choices
+                    to support your dog’s long-term wellness.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingMonitoring">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseMonitoring" aria-expanded="false" aria-controls="collapseMonitoring">
+                    <i class="bi bi-check-circle text-success me-2"></i> Health Monitoring
+                  </button>
+                </h4>
+                <div id="collapseMonitoring" class="accordion-collapse collapse" aria-labelledby="headingMonitoring"
+                  data-bs-parent="#dogCareAccordion">
+                  <div class="accordion-body">
+                    Routine checkups help us spot changes in your dog’s health before they become serious. We monitor
+                    weight, behavior, heart and lung function, joint mobility, and more during annual or semi-annual
+                    exams. Our records track your dog’s health over time, ensuring early detection of illnesses and
+                    timely treatment when needed.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="#book" class="btn btn-outline-primary mt-4">
+              <i class="bi bi-calendar-check me-1"></i> Book an Appointment
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="catCare" class="container my-5 cat-care-section" role="region" aria-label="Cat Care Section">
+        <h2 class="text-center mb-4">Cat Care</h2>
+        <div class="row g-4 align-items-start">
+          <div class="col-md-6 order-md-2">
+            <img src="assets/images/pexels-tima-miroshnichenko-6130974.jpg" class="img-fluid rounded shadow"
+              alt="Cat being examined at the veterinary clinic">
+          </div>
+          <div class="col-md-6 order-md-1">
+            <h3 class="h5 visually-hidden">Cat Care Details</h3> <!-- Hidden heading for accessibility -->
+
+            <p>Cats have unique needs when it comes to veterinary care. From preventative treatments to daily wellbeing,
+              our experienced team provides personalized support tailored for feline health and comfort.</p>
+
+            <div class="accordion" id="catCareAccordion">
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingCatVaccines">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCatVaccines" aria-expanded="false" aria-controls="collapseCatVaccines">
+                    <i class="bi bi-check-circle text-success me-2"></i> Core Vaccinations
+                  </button>
+                </h4>
+                <div id="collapseCatVaccines" class="accordion-collapse collapse" aria-labelledby="headingCatVaccines"
+                  data-bs-parent="#catCareAccordion">
+                  <div class="accordion-body">
+                    We protect cats against key diseases such as feline panleukopenia, calicivirus, herpesvirus, and
+                    rabies. Vaccination schedules vary based on age, lifestyle (indoor vs. outdoor), and medical
+                    history.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingCatGrooming">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCatGrooming" aria-expanded="false" aria-controls="collapseCatGrooming">
+                    <i class="bi bi-check-circle text-success me-2"></i> Grooming & Coat Care
+                  </button>
+                </h4>
+                <div id="collapseCatGrooming" class="accordion-collapse collapse" aria-labelledby="headingCatGrooming"
+                  data-bs-parent="#catCareAccordion">
+                  <div class="accordion-body">
+                    While cats are natural groomers, they still benefit from professional grooming to manage shedding,
+                    prevent matting, and reduce hairballs—especially for long-haired breeds.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingCatDental">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCatDental" aria-expanded="false" aria-controls="collapseCatDental">
+                    <i class="bi bi-check-circle text-success me-2"></i> Dental Health
+                  </button>
+                </h4>
+                <div id="collapseCatDental" class="accordion-collapse collapse" aria-labelledby="headingCatDental"
+                  data-bs-parent="#catCareAccordion">
+                  <div class="accordion-body">
+                    Dental disease is common in cats and can lead to pain, tooth loss, or systemic issues. We provide
+                    thorough cleanings and show you how to care for your cat's teeth at home.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingCatDiet">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCatDiet" aria-expanded="false" aria-controls="collapseCatDiet">
+                    <i class="bi bi-check-circle text-success me-2"></i> Nutrition & Hydration
+                  </button>
+                </h4>
+                <div id="collapseCatDiet" class="accordion-collapse collapse" aria-labelledby="headingCatDiet"
+                  data-bs-parent="#catCareAccordion">
+                  <div class="accordion-body">
+                    Cats are obligate carnivores and need a high-protein diet. We guide you on quality food choices and
+                    ways to keep your cat hydrated—especially important for those prone to urinary tract issues.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="headingCatCheckups">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCatCheckups" aria-expanded="false" aria-controls="collapseCatCheckups">
+                    <i class="bi bi-check-circle text-success me-2"></i> Wellness Exams
+                  </button>
+                </h4>
+                <div id="collapseCatCheckups" class="accordion-collapse collapse" aria-labelledby="headingCatCheckups"
+                  data-bs-parent="#catCareAccordion">
+                  <div class="accordion-body">
+                    Annual or biannual exams help detect early signs of illness, monitor weight, and discuss behavior or
+                    age-related concerns—ensuring a longer, healthier life for your feline friend.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="#book" class="btn btn-outline-primary mt-4">
+              <i class="bi bi-calendar-check me-1"></i> Book an Appointment
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="col-md-6">
-      <h3 class="h5">Your Dog Deserves the Best</h3>
-      <p>Our veterinary team offers expert guidance and services to ensure your dog stays healthy, clean, and happy. From routine vaccinations and checkups to specialized grooming and nutrition planning, we provide full support tailored to your dog’s needs.</p>
-      <ul class="list-unstyled">
-        <li><i class="bi bi-check-circle text-success me-2"></i>Essential Vaccines</li>
-        <li><i class="bi bi-check-circle text-success me-2"></i>Grooming & Baths</li>
-        <li><i class="bi bi-check-circle text-success me-2"></i>Dental Hygiene</li>
-        <li><i class="bi bi-check-circle text-success me-2"></i>Nutrition Plans</li>
-        <li><i class="bi bi-check-circle text-success me-2"></i>Health Monitoring</li>
-      </ul>
-      <a href="#book" class="btn btn-outline-primary mt-3">Book an Appointment</a>
-    </div>
-  </div>
-</section>
   </main>
-
+  <!-- Footer -->
   <footer class="footer mt-auto py-4" id="siteFooter">
     <div class="container text-center text-md-start">
       <div class="row">
@@ -221,7 +425,7 @@
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  
+
 
   <!-- custom javascript -->
   <script src="assets/js/script.js"></script>
