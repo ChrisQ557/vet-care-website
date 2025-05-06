@@ -383,6 +383,19 @@ h6 {
   font-weight: 500;
 }
 
+/* Make the dog section and cat section take more space */
+.dog-care-section,
+.cat-care-section {
+  min-height: 100vh;            
+  display: flex;                  
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem;            
+  background-color: var(--zorba); 
+  border-radius: 1rem;
+  margin-bottom: 2rem;            
+}
+
 /* Footer */
 footer {
   background-color: var(--rangoon-green);
