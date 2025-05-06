@@ -324,23 +324,15 @@ h6 {
   }
 }
 
-/* Book Section Background */
+/* Book section Pattern background , https://www.toptal.com/designers/subtlepatterns/ */
 .book-section {
-  background-image: url('../images/pexels-pixabay-158063.jpg'); 
-  background-size: cover; 
-  background-position: center center;
-  background-attachment: fixed; 
-  color: var(--mine-shaft); 
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden; 
-  position: relative;
+  background-color: #fdfaf4;
+  background-image: url('../images/leaves.webp'); 
+  background-repeat: repeat;
+  background-size: contain;
+  color: #272818; 
+  padding: 2rem;
 }
-
 
 /* Footer */
 footer {
