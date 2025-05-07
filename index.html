@@ -378,92 +378,11 @@
         </div>
       </section>
     </div>
-    <!-- Book section -->
-    <section id="book" class="py-5 book-section">
-      <h2 class="text-center mb-4">Book a Service</h2>
-    
-      <!-- Tab Buttons -->
-      <div class="d-flex justify-content-center mb-4 service-tabs">
-        <button class="btn btn-outline-primary mx-2 tab-button active" data-service="vaccine">Vaccinations</button>
-        <button class="btn btn-outline-primary mx-2 tab-button" data-service="grooming">Grooming & Hygiene</button>
-        <button class="btn btn-outline-primary mx-2 tab-button" data-service="checkup">Health Checkup</button>
-      </div>
-    
-      <!-- Forms -->
-      <div class="form-container">
-        <!-- Vaccination Form -->
-        <form id="form-vaccine" class="service-form active card p-4 mb-3">
-          <h5 class="mb-3">Book Vaccinations</h5>
-          <div class="mb-3">
-            <label for="vaccinePet" class="form-label">Pet Type</label>
-            <select id="vaccinePet" class="form-select" required>
-              <option value="">Select</option>
-              <option value="cat">Cat</option>
-              <option value="dog">Dog</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="petAge" class="form-label">Pet Age (in months)</label>
-            <input type="number" id="petAge" class="form-control" min="1" required />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Recommended Vaccines</label>
-            <ul id="recommendedVaccines" class="list-group">
-              <li class="list-group-item">Select pet type and age to see recommendations.</li>
-            </ul>
-          </div>
-          <button type="submit" class="btn btn-success">Book Vaccination</button>
-        </form>
-    
-        <!-- Grooming & Hygiene Form -->
-        <form id="form-grooming" class="service-form card p-4 mb-3 d-none">
-          <h5 class="mb-3">Book Grooming & Hygiene</h5>
-          <div class="mb-3">
-            <label for="groomPetType" class="form-label">Pet Type</label>
-            <select id="groomPetType" class="form-select" required>
-              <option value="">Select</option>
-              <option value="cat">Cat</option>
-              <option value="dog">Dog</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="groomService" class="form-label">Service</label>
-            <select id="groomService" class="form-select" required>
-              <option value="bath">Bath</option>
-              <option value="nail">Nail Trim</option>
-              <option value="ear">Ear Cleaning</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-success">Book Grooming</button>
-        </form>
-    
-        <!-- Health Checkup Form -->
-        <form id="form-checkup" class="service-form card p-4 mb-3 d-none">
-          <h5 class="mb-3">Book Health Checkup</h5>
-          <div class="mb-3">
-            <label for="checkupPet" class="form-label">Pet Type</label>
-            <select id="checkupPet" class="form-select" required>
-              <option value="">Select</option>
-              <option value="cat">Cat</option>
-              <option value="dog">Dog</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="symptoms" class="form-label">Symptoms (optional)</label>
-            <textarea id="symptoms" class="form-control" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-success">Book Checkup</button>
-        </form>
-      </div>
-    
-      <!-- Confirmation Output -->
-      <div id="confirmation" class="alert alert-info mt-4 d-none"></div>
-    </section>
 
     <!-- Register section -->
     <section id="register" class="py-5">
       <div class="container mt-5 mb-5 py-5">
-        <div class="row justify-content-center">
+        <div class="row g-4">
           <div class="col-12 col-md-8 col-lg-6">
             <h2 class="mb-4 text-center">Join Our Vet Community</h2>
             <form id="registerForm" class="p-4 shadow rounded bg-light">
@@ -491,8 +410,110 @@
             </form>
             <div id="registerMessage" class="mt-3"></div>
           </div>
+          <!-- Contact Section -->
+          <div class="col-md-6">
+            <section id="contact">
+              <h2>Contact Us</h2>
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="contactName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="contactName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="contactEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Send Message</button>
+              </form>
+            </section>
+
+          </div>
         </div>
       </div>
+    </section>
+    <!-- Book section -->
+    <section id="book" class="book-section">
+      <h2 class="text-center mb-1">Book a Service</h2>
+      <!-- Tab Buttons -->
+      <div class="d-flex justify-content-center mb-4 service-tabs">
+        <button class="btn btn-outline-primary mx-2 tab-button active" data-service="vaccine">Vaccinations</button>
+        <button class="btn btn-outline-primary mx-2 tab-button" data-service="grooming">Grooming & Hygiene</button>
+        <button class="btn btn-outline-primary mx-2 tab-button" data-service="checkup">Health Checkup</button>
+      </div>
+
+      <!-- Forms -->
+      <div class="form-container">
+        <!-- Vaccination Form -->
+        <form id="form-vaccine" class="service-form active card p-4 mb-3">
+          <h5 class="mb-3">Book Vaccinations</h5>
+          <div class="mb-3">
+            <label for="vaccinePet" class="form-label">Pet Type</label>
+            <select id="vaccinePet" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="petAge" class="form-label">Pet Age (in months)</label>
+            <input type="number" id="petAge" class="form-control" min="1" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Recommended Vaccines</label>
+            <ul id="recommendedVaccines" class="list-group">
+              <li class="list-group-item">Select pet type and age to see recommendations.</li>
+            </ul>
+          </div>
+          <button type="submit" class="btn btn-success">Book Vaccination</button>
+        </form>
+
+        <!-- Grooming & Hygiene Form -->
+        <form id="form-grooming" class="service-form card p-4 mb-3 d-none">
+          <h5 class="mb-3">Book Grooming & Hygiene</h5>
+          <div class="mb-3">
+            <label for="groomPetType" class="form-label">Pet Type</label>
+            <select id="groomPetType" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="groomService" class="form-label">Service</label>
+            <select id="groomService" class="form-select" required>
+              <option value="bath">Bath</option>
+              <option value="nail">Nail Trim</option>
+              <option value="ear">Ear Cleaning</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Book Grooming</button>
+        </form>
+
+        <!-- Health Checkup Form -->
+        <form id="form-checkup" class="service-form card p-4 mb-3 d-none">
+          <h5 class="mb-3">Book Health Checkup</h5>
+          <div class="mb-3">
+            <label for="checkupPet" class="form-label">Pet Type</label>
+            <select id="checkupPet" class="form-select" required>
+              <option value="">Select</option>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="symptoms" class="form-label">Symptoms (optional)</label>
+            <textarea id="symptoms" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Book Checkup</button>
+        </form>
+      </div>
+
+      <!-- Confirmation Output -->
+      <div id="confirmation" class="alert alert-info mt-4 d-none"></div>
     </section>
   </main>
   <!-- Footer -->
@@ -521,9 +542,12 @@
           <h5 class="footer-heading">Contact</h5>
           <p>Email: info@vetcare.com<br>Phone: 020 5646 3036</p>
           <div class="social-icons mt-2">
-            <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="http://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="http://www.twitter.com" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="http://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><i
+                class="fab fa-instagram"></i></a>
+            <a href="http://www.twitter.com" aria-label="Twitter" target="_blank" rel="noopener"><i
+                class="fab fa-twitter"></i></a>
           </div>
         </div>
       </div>
