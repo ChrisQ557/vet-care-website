@@ -142,28 +142,16 @@ h6 {
   background-color: var(--potters-clay);
 }
 
-/* Dog care section */
-.dog-care-section {
-  background-color: var(--zorba);
-  padding: 3rem 1rem;
-  border-radius: 1rem;
-}
-
-/* Cat care section */
-.cat-care-section {
-  background-color: var(--zorba);
-  padding: 3rem 1rem;
-  border-radius: 1rem;
-}
-
-/* Make the dog section and cat section take more space */
+/* Make dog, cat, register, contact sections take more space */
 .dog-care-section,
-.cat-care-section {
+.cat-care-section,
+.register,
+.contact {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem; 
   background-color: var(--zorba);
   border-radius: 1rem;
   margin-bottom: 2rem;
@@ -228,17 +216,15 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 50vh;
   overflow: hidden;
 }
 
 /* Title */
-.book-section h1 {
+.book-section h2 {
   font-family: 'Lora', serif;
   font-size: 2.5rem;
   color: var(--dallas);
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 /* Form Container */
@@ -263,14 +249,13 @@ h6 {
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 /* Form Title */
 .book-form h2 {
   color: var(--dallas);
   font-size: 2rem;
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
   font-family: 'Lora', serif;
   text-align: center;
 }
@@ -338,6 +323,103 @@ h6 {
   }
 }
 
+/* Shared Section Style */
+.register, .contact {
+  background-color: var(--zorba);
+  background-repeat: repeat;
+  background-size: auto;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  color: var(--rangoon-green);
+}
+
+/* Section Headings */
+.register h2, .contact h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--rangoon-green);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Shared Form Styles */
+.register form, .contact form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Form-specific Accent Borders */
+#registerForm {
+  border-left: 5px solid var(--orange-roughy);
+}
+#contactForm {
+  border-left: 5px solid var(--potters-clay);
+}
+
+/* Input and Select Fields */
+.register input,
+.register select,
+.contact input,
+.contact textarea {
+  border: 1px solid var(--corduroy);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #fff;
+  color: var(--rangoon-green);
+}
+
+/* Focus Styles */
+.register input:focus,
+.register select:focus,
+.contact input:focus,
+.contact textarea:focus {
+  border-color: var(--orange-roughy);
+  box-shadow: 0 0 0 0.2rem rgba(184, 81, 29, 0.25);
+  outline: none;
+}
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: var(--potters-clay);
+  box-shadow: 0 0 0 0.2rem rgba(146, 99, 50, 0.25);
+}
+
+/* Buttons */
+.register button,
+.contact button {
+  background-color: var(--orange-roughy);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.register button:hover {
+  background-color: #a04317;
+}
+
+.contact button {
+  background-color: var(--potters-clay);
+}
+
+.contact button:hover {
+  background-color: #7a4f29;
+}
+
+/* Optional Feedback */
+#registerMessage {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
 /* Book section Pattern background , https://www.toptal.com/designers/subtlepatterns/ */
 .book-section {
   background-color: #fdfaf4;
@@ -348,100 +430,102 @@ h6 {
   padding: 2rem;
 }
 
+
+
 /* Register section */
-#register {
+/*#register {
   background-color: var(--zorba, #a49c94);
-  /*background-image: url('../images/watercolor.webp');*/
+  background-image: url('../images/watercolor.webp');
   background-repeat: repeat;
   background-size: auto;
   color: var(--rangoon-green, #272818);
-}
+}*/
 
-#register h2 {
+/* #register h2 {
   font-family: 'Lora', serif;
   font-weight: 600;
   font-size: 2rem;
   color: var(--rangoon-green, #272818);
-}
+} */
 
-#registerForm {
+/* #registerForm {
   background-color: rgba(255, 255, 255, 0.95);
   border-left: 5px solid var(--orange-roughy, #b8511d);
   padding: 2rem;
   border-radius: 1rem;
-}
-
+} */
+/* 
 #registerForm input,
 #registerForm select {
   border: 1px solid var(--corduroy, #5e6060);
   border-radius: 0.5rem;
-}
+} */
 
-#registerForm input:focus,
+/* #registerForm input:focus,
 #registerForm select:focus {
   border-color: var(--orange-roughy, #b8511d);
   box-shadow: 0 0 0 0.2rem rgba(184, 81, 29, 0.25);
-}
+} */
 
-#registerForm button {
+/* #registerForm button {
   background-color: var(--orange-roughy, #b8511d);
   border: none;
   transition: background-color 0.3s ease;
-}
+} */
 
-#registerForm button:hover {
+/* #registerForm button:hover {
   background-color: #a04317;
-}
+} */
 
-#registerMessage {
+/* #registerMessage {
   font-weight: 500;
-}
+} */
 
 /* Contact section */
-#contact {
+/* #contact {
   background-color: var(--zorba, #a49c94);
   background-repeat: repeat;
   background-size: auto;
   padding: 2rem;
   border-radius: 1rem;
   color: var(--rangoon-green);
-}
+} */
 
-#contact h2 {
+/* #contact h2 {
   font-family: 'Lora', serif;
   font-size: 2rem;
   color: var(--rangoon-green);
-}
+} */
 
-#contactForm {
+/* #contactForm {
   background-color: rgba(255, 255, 255, 0.95);
   border-left: 5px solid var(--potters-clay);
   padding: 2rem;
   border-radius: 1rem;
-}
+} */
 
-#contactForm input,
+/* #contactForm input,
 #contactForm textarea {
   border: 1px solid var(--corduroy);
   border-radius: 0.5rem;
-}
-
+} */
+/* 
 #contactForm input:focus,
 #contactForm textarea:focus {
   border-color: var(--potters-clay);
   box-shadow: 0 0 0 0.2rem rgba(146, 99, 50, 0.25);
-}
+} */
 
-#contactForm button {
+/* #contactForm button {
   background-color: var(--potters-clay);
   border: none;
   transition: background-color 0.3s ease;
   color: white;
-}
+} */
 
-#contactForm button:hover {
+/* #contactForm button:hover {
   background-color: #7a4f29;
-}
+} */
 
 /* Footer */
 footer {
