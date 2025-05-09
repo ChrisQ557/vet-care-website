@@ -142,11 +142,19 @@ h6 {
   background-color: var(--potters-clay);
 }
 
-/* Make dog, cat, register, contact sections take more space */
-.dog-care-section,
-.cat-care-section,
-.register,
-.contact {
+/* Dog, cat sections */
+.dog-care-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem; 
+  background-color: var(--corduroy);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cat-care-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -156,6 +164,29 @@ h6 {
   border-radius: 1rem;
   margin-bottom: 2rem;
 }
+
+
+
+.register {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--go-ben);
+}
+
+.contact {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--potters-clay);
+} 
+
 
 /* Accordion card base */
 .accordion-item {
@@ -207,20 +238,7 @@ h6 {
   box-shadow: 0 0 0 0.25rem rgba(220, 188, 127, 0.5);
 }
 
-/* Book Section Styling */
-.book-section {
-  background-color: var(--flint);
-  color: var(--mine-shaft);
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
-  overflow: hidden;
-}
-
-/* Title */
+/* Book section */
 .book-section h2 {
   font-family: 'Lora', serif;
   font-size: 2.5rem;
@@ -255,9 +273,7 @@ h6 {
 .book-form h2 {
   color: var(--dallas);
   font-size: 2rem;
-  /* margin-bottom: 10px; */
-  font-family: 'Lora', serif;
-  text-align: center;
+  /* font-family: 'Lora', serif; */
 }
 
 /* Form Fields */
@@ -297,40 +313,6 @@ h6 {
 
 .book-form button:hover {
   background-color: var(--orange-roughy);
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .book-form {
-    max-width: 90%;
-    padding: 20px;
-  }
-
-  .book-section h1 {
-    font-size: 2rem;
-  }
-
-  .book-form-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book-form input,
-  .book-form select,
-  .book-form textarea,
-  .book-form button {
-    font-size: 1rem;
-  }
-}
-
-/* Shared Section Style */
-.register, .contact {
-  background-color: var(--zorba);
-  background-repeat: repeat;
-  background-size: auto;
-  padding: 3rem 1.5rem;
-  border-radius: 1rem;
-  color: var(--rangoon-green);
 }
 
 /* Section Headings */
@@ -420,112 +402,6 @@ h6 {
   margin-top: 1rem;
 }
 
-/* Book section Pattern background , https://www.toptal.com/designers/subtlepatterns/ */
-.book-section {
-  background-color: #fdfaf4;
-  background-image: url('../images/leaves.webp');
-  background-repeat: repeat;
-  background-size: contain;
-  color: #272818;
-  padding: 2rem;
-}
-
-
-
-/* Register section */
-/*#register {
-  background-color: var(--zorba, #a49c94);
-  background-image: url('../images/watercolor.webp');
-  background-repeat: repeat;
-  background-size: auto;
-  color: var(--rangoon-green, #272818);
-}*/
-
-/* #register h2 {
-  font-family: 'Lora', serif;
-  font-weight: 600;
-  font-size: 2rem;
-  color: var(--rangoon-green, #272818);
-} */
-
-/* #registerForm {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-left: 5px solid var(--orange-roughy, #b8511d);
-  padding: 2rem;
-  border-radius: 1rem;
-} */
-/* 
-#registerForm input,
-#registerForm select {
-  border: 1px solid var(--corduroy, #5e6060);
-  border-radius: 0.5rem;
-} */
-
-/* #registerForm input:focus,
-#registerForm select:focus {
-  border-color: var(--orange-roughy, #b8511d);
-  box-shadow: 0 0 0 0.2rem rgba(184, 81, 29, 0.25);
-} */
-
-/* #registerForm button {
-  background-color: var(--orange-roughy, #b8511d);
-  border: none;
-  transition: background-color 0.3s ease;
-} */
-
-/* #registerForm button:hover {
-  background-color: #a04317;
-} */
-
-/* #registerMessage {
-  font-weight: 500;
-} */
-
-/* Contact section */
-/* #contact {
-  background-color: var(--zorba, #a49c94);
-  background-repeat: repeat;
-  background-size: auto;
-  padding: 2rem;
-  border-radius: 1rem;
-  color: var(--rangoon-green);
-} */
-
-/* #contact h2 {
-  font-family: 'Lora', serif;
-  font-size: 2rem;
-  color: var(--rangoon-green);
-} */
-
-/* #contactForm {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-left: 5px solid var(--potters-clay);
-  padding: 2rem;
-  border-radius: 1rem;
-} */
-
-/* #contactForm input,
-#contactForm textarea {
-  border: 1px solid var(--corduroy);
-  border-radius: 0.5rem;
-} */
-/* 
-#contactForm input:focus,
-#contactForm textarea:focus {
-  border-color: var(--potters-clay);
-  box-shadow: 0 0 0 0.2rem rgba(146, 99, 50, 0.25);
-} */
-
-/* #contactForm button {
-  background-color: var(--potters-clay);
-  border: none;
-  transition: background-color 0.3s ease;
-  color: white;
-} */
-
-/* #contactForm button:hover {
-  background-color: #7a4f29;
-} */
 
 /* Footer */
 footer {
@@ -557,10 +433,6 @@ footer {
   font-size: 1.2rem;
 }
 
-hr {
-  border-color: var(--go-ben);
-}
-
 .vet-section-bg {
   background-image: url('../images/matt-seymour-9htTVAs3rAM-unsplash.jpg');
   background-size: cover;
@@ -569,4 +441,5 @@ hr {
   background-repeat: no-repeat;
   padding: 3rem 0;
 }
+
 

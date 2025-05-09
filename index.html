@@ -45,9 +45,9 @@
           <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#dogCare">Dog Care</a></li>
           <li class="nav-item"><a class="nav-link" href="#catCare">Cat Care</a></li>
-          <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
         </ul>
       </div>
 
@@ -57,9 +57,9 @@
           <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#dogCare">Dog Care</a></li>
           <li class="nav-item"><a class="nav-link" href="#catCare">Cat Care</a></li>
-          <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
         </ul>
       </div>
     </div>
@@ -379,13 +379,16 @@
         </div>
       </section>
       <!-- Register section -->
-      <section id="register" class="py-5">
-        <div class="container">
-          <div class="row g-5 align-items-center register">
-            <!-- Register Form -->
-            <div class="col-md-6">
-              <h2 class="mb-4 text-center">Join Our Vet Community</h2>
-              <form id="registerForm" class="p-4 shadow rounded bg-white">
+      <section id="register">
+        <div class="container py-5">
+          <div class="mx-auto" style="max-width: 1000px;">
+            <div class="row g-5 align-items-center">
+
+              <!-- Register Form -->
+              <h2 class="text-center mb-3">
+                <span class="bg-dark px-2 rounded d-inline-block text-white">Join Us</span>
+              </h2>
+              <form id="registerForm" class="p-4 shadow rounded bg-white register">
                 <div class="mb-3">
                   <label for="name" class="form-label">Full Name</label>
                   <input type="text" id="name" name="name" class="form-control" required>
@@ -410,17 +413,22 @@
               </form>
               <div id="registerMessage" class="mt-3"></div>
             </div>
+          </div>
+        </div>
       </section>
 
       <!-- Contact Form -->
-      <section id="contact" class="py-5">
-        <div class="container">
+      <section id="contact">
+        <div class="container py-5">
 
           <div class="mx-auto" style="max-width: 1000px;">
-            <div class="row g-5 contact align-items-center">
-              <div class="col-md-6">
-                <h2 class="mb-4 text-center">Contact Us</h2>
-                <form id="contactForm" class="p-4 shadow rounded">
+            <div class="row g-5 align-items-center">
+
+              <h2 class="text-center mb-3">
+                <span class="bg-dark px-2 py-1 rounded d-inline-block text-white">Contact Us</span>
+              </h2>
+
+                <form id="contactForm" class="p-4 shadow rounded contact">
                   <div class="mb-3">
                     <label for="contactName" class="form-label">Name</label>
                     <input type="text" class="form-control" id="contactName" required>
@@ -435,21 +443,18 @@
                   </div>
                   <button type="submit" class="w-100">Send Message</button>
                 </form>
-              </div>
-            </div>ƒ
+
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Book section -->
-
-
-
-      <section id="book">
+      <section id="book" class="py-5">
         <div class="container">
           <div class="mx-auto" style="max-width: 1000px;">
             <h2 class="text-center mb-3">
-              <span class="bg-light px-1 rounded d-inline-block">Book a Service</span>
+              <span class="bg-dark px-1 rounded d-inline-block text-white mb-3">Book a Service</span>
             </h2>
             <!-- Tab Buttons -->
             <div class="d-flex justify-content-center mb-4 service-tabs">
@@ -457,15 +462,16 @@
                 data-service="vaccine">Vaccinations</button>
               <button class="btn btn-outline-primary mx-2 tab-button bg-dark" data-service="grooming">Grooming &
                 Hygiene</button>
-              <button class="btn btn-outline-primary mx-2 tab-button bg-dark" data-service="checkup">Health Checkup</button>
+              <button class="btn btn-outline-primary mx-2 tab-button bg-dark" data-service="checkup">Health
+                Checkup</button>
             </div>
 
             <!-- Forms -->
             <div class="book-form-container">
 
               <!-- Vaccination Form -->
-              <form id="form-vaccine" class="book-form active bg-white shadow rounded p-4">
-                <h2 class="mb-4 text-center">Book Vaccinations</h2>
+              <form id="form-vaccine" class="book-form active bg-white rounded p-4">
+                <h2 class="mb-3 text-center">Book Vaccinations</h2>
 
                 <div class="form-floating mb-3 border-bottom">
                   <select id="vaccinePet" class="form-select" required>
