@@ -187,6 +187,10 @@ h6 {
   background-color: var(--potters-clay);
 } 
 
+.book {
+  background-color: var(--zorba);
+}
+
 
 /* Accordion card base */
 .accordion-item {
@@ -245,29 +249,8 @@ h6 {
   color: var(--dallas);
 }
 
-/* Form Container */
-.book-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 30px;
-}
 
-/* Form */
-.book-form {
-  background-color: var(--gray-nickel);
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-}
+
 
 /* Form Title */
 .book-form h2 {
@@ -276,19 +259,6 @@ h6 {
   /* font-family: 'Lora', serif; */
 }
 
-/* Form Fields */
-.book-form input,
-.book-form select,
-.book-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid var(--gray);
-  border-radius: 4px;
-  font-size: 1rem;
-  color: var(--mine-shaft);
-  background-color: var(--dusty-gray);
-}
 
 /* Focused Inputs */
 .book-form input:focus,
@@ -374,7 +344,7 @@ h6 {
 /* Buttons */
 .register button,
 .contact button {
-  background-color: var(--orange-roughy);
+  background-color: var(--potters-clay);
   border: none;
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
