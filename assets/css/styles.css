@@ -280,8 +280,15 @@ h1, h2 {
   transition: background-color 0.3s;
 }
 
-.book-form button:hover {
-  background-color: white;
+.tab-button.bg-dark:hover {
+  background-color: #444 !important; /* Slightly lighter than Bootstrap's .bg-dark (#212529) */
+  color: #fff;
+}
+
+.tab-button.active {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #444 !important;
 }
 
 /* Section Headings */
