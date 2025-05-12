@@ -424,24 +424,24 @@
           <div class="mx-auto" style="max-width: 1000px;">
             <div class="row g-5 align-items-center">
 
-              
 
-                <form id="contactForm" class="p-4 shadow rounded contact">
-                  <h2 class="text-center mb-5 text-dark">Contact Us</h2>
-                  <div class="mb-3">
-                    <label for="contactName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="contactName" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contactEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="contactEmail" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contactMessage" class="form-label">Message</label>
-                    <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
-                  </div>
-                  <button type="submit" class="w-100">Send Message</button>
-                </form>
+
+              <form id="contactForm" class="p-4 shadow rounded contact">
+                <h2 class="text-center mb-5 text-dark">Contact Us</h2>
+                <div class="mb-3">
+                  <label for="contactName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="contactName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="contactEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="w-100">Send Message</button>
+              </form>
 
             </div>
           </div>
@@ -453,11 +453,12 @@
         <div class="container">
           <div class="mx-auto" style="max-width: 1000px;">
             <div class="book-form-container">
-      
+
               <!-- Vaccination Form -->
-              <form id="form-vaccine" class="book-form book rounded p-4">
-                <h2 class="text-center mb-4 text-dark">Book a Service</h2>
-      
+
+              <form id="form-vaccine" class="book-form book p-4">
+                <h2 class="text-center mb-5 text-dark">Book a Service</h2>
+
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4 service-tabs">
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button active bg-dark"
@@ -467,9 +468,9 @@
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
                     data-service="checkup">Health Checkup</button>
                 </div>
-      
+
                 <h3 class="mb-3 text-center">Book Vaccinations</h3>
-      
+
                 <div class="mb-3 border-bottom">
                   <label for="vaccinePet" class="form-label fw-semibold">Pet Type</label>
                   <select id="vaccinePet" class="form-select" required>
@@ -478,28 +479,28 @@
                     <option value="dog">Dog</option>
                   </select>
                 </div>
-      
+
                 <div class="form-floating mb-3 border-bottom">
                   <input type="number" id="petAge" class="form-control" min="1" placeholder="Pet Age" required />
                   <label for="petAge">Pet Age (in months)</label>
                 </div>
-      
+
                 <div class="mb-3 border-bottom">
                   <label class="form-label fw-semibold">Recommended Vaccines</label>
                   <ul id="recommendedVaccines" class="list-group list-group-flush">
                     <li class="list-group-item">Select pet type and age to see recommendations.</li>
                   </ul>
                 </div>
-      
+
                 <div class="d-grid">
                   <button type="submit" class="btn btn-success">Book Vaccination</button>
                 </div>
               </form>
-      
+
               <!-- Grooming Form -->
               <form id="form-grooming" class="book-form book card p-4 mb-3 d-none active">
-                <h2 class="text-center mb-4 text-dark">Book a Service</h2>
-      
+                <h2 class="text-center mb-5 text-dark">Book a Service</h2>
+
                 <div class="d-flex justify-content-center mb-4 service-tabs">
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
                     data-service="vaccine">Vaccinations</button>
@@ -508,10 +509,10 @@
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
                     data-service="checkup">Health Checkup</button>
                 </div>
-      
+
                 <h3 class="mb-3 text-center">Book Grooming & Hygiene</h3>
-      
-                <div class="mb-3">
+
+                <div class="mb-5">
                   <label for="groomPetType" class="form-label">Pet Type</label>
                   <select id="groomPetType" class="form-select" required>
                     <option value="">Select</option>
@@ -519,8 +520,8 @@
                     <option value="dog">Dog</option>
                   </select>
                 </div>
-      
-                <div class="mb-3">
+
+                <div class="mb-5 mt-3">
                   <label for="groomService" class="form-label">Service</label>
                   <select id="groomService" class="form-select" required>
                     <option value="bath">Bath</option>
@@ -528,14 +529,14 @@
                     <option value="ear">Ear Cleaning</option>
                   </select>
                 </div>
-      
+
                 <button type="submit" class="btn btn-success">Book Grooming</button>
               </form>
-      
+
               <!-- Checkup Form -->
               <form id="form-checkup" class="book-form book card p-4 mb-3 d-none">
-                <h2 class="text-center mb-4 text-dark">Book a Service</h2>
-      
+                <h2 class="text-center mb-5 text-dark">Book a Service</h2>
+
                 <div class="d-flex justify-content-center mb-4 service-tabs">
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
                     data-service="vaccine">Vaccinations</button>
@@ -544,9 +545,9 @@
                   <button type="button" class="btn btn-outline-primary mx-2 tab-button active bg-dark"
                     data-service="checkup">Health Checkup</button>
                 </div>
-      
+
                 <h3 class="mb-3 text-center">Book Health Checkup</h3>
-      
+
                 <div class="mb-3">
                   <label for="checkupPet" class="form-label">Pet Type</label>
                   <select id="checkupPet" class="form-select" required>
@@ -555,23 +556,24 @@
                     <option value="dog">Dog</option>
                   </select>
                 </div>
-      
-                <div class="mb-3">
+
+                <div class="mb-5">
                   <label for="symptoms" class="form-label">Symptoms (optional)</label>
                   <textarea id="symptoms" class="form-control" rows="3"></textarea>
                 </div>
-      
+
                 <button type="submit" class="btn btn-success">Book Checkup</button>
               </form>
-      
+
+
             </div>
-      
+
             <!-- Confirmation Output -->
             <div id="confirmation" class="alert alert-info mt-4 d-none"></div>
           </div>
         </div>
       </section>
-    </div>  
+    </div>
   </main>
 
   <!-- Footer -->
