@@ -281,7 +281,7 @@ h1, h2 {
 }
 
 .tab-button.bg-dark:hover {
-  background-color: #444 !important; /* Slightly lighter than Bootstrap's .bg-dark (#212529) */
+  background-color: #444 !important; 
   color: #fff;
 }
 
@@ -418,19 +418,4 @@ footer {
   padding: 3rem 0;
 }
 
-/* .book-form-container {
-  min-height: 560px; 
-}
-
-.book-form {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100%;
-}
-
-.book-form.d-none {
-  display: none !important;
-} */
 
