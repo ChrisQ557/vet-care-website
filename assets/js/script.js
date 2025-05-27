@@ -1,4 +1,4 @@
-/* Javascript added to test book form layout */
+/* JavaScript for dynamic form display with tabs */
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-button');
     const forms = document.querySelectorAll('.book-form');
@@ -8,27 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = button.getAttribute('data-service');
 
             // Update tab buttons
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+            tabButtons.forEach(btn => btn.classList.remove('is-active'));
+            button.classList.add('is-active');
 
             // Show the correct form
-            forms.forEach(form => {
-                if (form.id === `form-${target}`) {
-                    form.classList.add('active');
-                    form.classList.remove('d-none');
-                } else {
-                    form.classList.remove('active');
-                    form.classList.add('d-none');
-                }
+          forms.forEach(form => {
+        if (form.id === `form-${target}`) {
+          form.classList.remove('d-none');
+        } else {
+          form.classList.add('d-none');
+        }
             });
         });
     });
 });
 
-// Scroll to top button
-const scrollBtn = document.getElementById("scrollTopBtn");
-window.onscroll = () => {
-  scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
-scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
 

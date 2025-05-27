@@ -386,7 +386,7 @@
 
               <!-- Register Form -->
               <form id="registerForm" class="p-4 shadow rounded register">
-                <h2 class="text-center mb-5 text-dark">Join our Vet Community</h2> 
+                <h2 class="text-center mb-5 text-dark">Join our Vet Community</h2>
                 <div class="mb-3">
                   <label for="name" class="form-label">Full Name</label>
                   <input type="text" id="name" name="name" class="form-control" required>
@@ -453,18 +453,14 @@
             <div class="book-form-container">
 
               <!-- Vaccination Form -->
-
               <form id="form-vaccine" class="book-form book card p-4 mb-3">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
 
                 <!-- Service Tabs -->
-                <div class="d-flex justify-content-center mb-4 service-tabs">
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button active bg-dark"
-                    data-service="vaccine">Vaccinations</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="grooming">Grooming & Hygiene</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="checkup">Health Checkup</button>
+                <div class="d-flex justify-content-center mb-4">
+                  <button type="button" class="tab-button mx-2 is-active" data-service="vaccine">Vaccinations</button>
+                  <button type="button" class="tab-button mx-2" data-service="grooming">Grooming & Hygiene</button>
+                  <button type="button" class="tab-button mx-2" data-service="checkup">Health Checkup</button>
                 </div>
 
                 <h3 class="mb-3 text-center">Book Vaccinations</h3>
@@ -496,16 +492,14 @@
               </form>
 
               <!-- Grooming Form -->
-              <form id="form-grooming" class="book-form book card p-4 mb-3 d-none active">
+              <form id="form-grooming" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-
-                <div class="d-flex justify-content-center mb-4 service-tabs">
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="vaccine">Vaccinations</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button active bg-dark"
-                    data-service="grooming">Grooming & Hygiene</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="checkup">Health Checkup</button>
+                
+                <!-- Service Tabs -->
+                <div class="d-flex justify-content-center mb-4">
+                  <button type="button" class="tab-button mx-2" data-service="vaccine">Vaccinations</button>
+                  <button type="button" class="tab-button mx-2" data-service="grooming">Grooming & Hygiene</button>
+                  <button type="button" class="tab-button mx-2" data-service="checkup">Health Checkup</button>
                 </div>
 
                 <h3 class="mb-3 text-center">Book Grooming & Hygiene</h3>
@@ -534,14 +528,12 @@
               <!-- Checkup Form -->
               <form id="form-checkup" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-
-                <div class="d-flex justify-content-center mb-4 service-tabs">
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="vaccine">Vaccinations</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button bg-dark"
-                    data-service="grooming">Grooming & Hygiene</button>
-                  <button type="button" class="btn btn-outline-primary mx-2 tab-button active bg-dark"
-                    data-service="checkup">Health Checkup</button>
+                
+                <!-- Service Tabs -->
+                <div class="d-flex justify-content-center mb-4">
+                  <button type="button" class="tab-button mx-2" data-service="vaccine">Vaccinations</button>
+                  <button type="button" class="tab-button mx-2" data-service="grooming">Grooming & Hygiene</button>
+                  <button type="button" class="tab-button mx-2" data-service="checkup">Health Checkup</button>
                 </div>
 
                 <h3 class="mb-3 text-center">Book Health Checkup</h3>
@@ -562,8 +554,6 @@
 
                 <button type="submit" class="btn btn-secondary">Book Checkup</button>
               </form>
-
-
             </div>
 
             <!-- Confirmation Output -->
@@ -629,10 +619,6 @@
 
   <!-- FontAwesome Kit -->
   <script src="https://kit.fontawesome.com/b3ee77d113.js" crossorigin="anonymous"></script>
-  <!-- Scroll to top button -->
-  <button id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3" style="display: none;">
-  ↑ Top
-  </button>
 
 </body>
 
