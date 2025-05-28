@@ -473,11 +473,22 @@
                     <option value="dog">Dog</option>
                   </select>
                 </div>
-
+<!-- 
                 <div class="form-floating mb-3 border-bottom">
                   <input type="number" id="petAge" class="form-control" min="1" placeholder="Pet Age" required />
                   <label for="petAge">Pet Age (in months)</label>
+                </div> -->
+                <div class="mb-3">
+                  <label for="petAge">Pet Age:</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="petAge" min="0" />
+                    <select id="ageUnit" class="form-select">
+                      <option value="months">Months</option>
+                      <option value="years">Years</option>
+                    </select>
+                  </div>
                 </div>
+
 
                 <div class="mb-3 border-bottom">
                   <label class="form-label fw-semibold">Recommended Vaccines</label>
@@ -494,7 +505,7 @@
               <!-- Grooming Form -->
               <form id="form-grooming" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-                
+
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4">
                   <button type="button" class="tab-button mx-2" data-service="vaccine">Vaccinations</button>
@@ -528,7 +539,7 @@
               <!-- Checkup Form -->
               <form id="form-checkup" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-                
+
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4">
                   <button type="button" class="tab-button mx-2" data-service="vaccine">Vaccinations</button>
