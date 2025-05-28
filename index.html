@@ -22,8 +22,8 @@
     integrity="ha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 
   <!-- Flatpickr CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 
 
   <!-- Custom CSS -->
@@ -477,20 +477,20 @@
                     <option value="dog">Dog</option>
                   </select>
                 </div>
-<!-- 
-                <div class="form-floating mb-3 border-bottom">
-                  <input type="number" id="petAge" class="form-control" min="1" placeholder="Pet Age" required />
-                  <label for="petAge">Pet Age (in months)</label>
-                </div> -->
                 <div class="mb-3">
                   <label for="petAge">Pet Age:</label>
                   <div class="input-group">
-                    <input type="number" class="form-control" id="petAge" min="0" />
+                    <input type="number" class="form-control" id="petAge" min="0" required>
                     <select id="ageUnit" class="form-select">
                       <option value="months">Months</option>
                       <option value="years">Years</option>
                     </select>
                   </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="appointment" class="form-label fw-semibold">Choose Appointment Date & Time</label>
+                  <input type="datetime-local" id="appointment" class="form-control" required>
                 </div>
 
 
@@ -634,6 +634,9 @@
 
   <!-- FontAwesome Kit -->
   <script src="https://kit.fontawesome.com/b3ee77d113.js" crossorigin="anonymous"></script>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </body>
 

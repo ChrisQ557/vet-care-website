@@ -1,3 +1,31 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const forms = {
+    vaccine: document.getElementById('form-vaccine'),
+    grooming: document.getElementById('form-grooming'),
+    checkup: document.getElementById('form-checkup')
+  };
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const service = button.getAttribute('data-service');
+
+      // Hide all forms
+      Object.values(forms).forEach(form => form.classList.add('d-none'));
+
+      // Remove active class from all tab buttons
+      tabButtons.forEach(btn => btn.classList.remove('is-active'));
+
+      // Show selected form and activate tab
+      forms[service].classList.remove('d-none');
+      button.classList.add('is-active');
+    });
+  });
+});
+
+
+
 // DOM References
 const petTypeSelect = document.getElementById('vaccinePet');
 const petAgeInput = document.getElementById('petAge');
@@ -51,3 +79,25 @@ function updateVaccineList() {
 petTypeSelect.addEventListener('change', updateVaccineList);
 petAgeInput.addEventListener('input', updateVaccineList);
 ageUnitSelect.addEventListener('change', updateVaccineList);
+
+// Flatpickr for appointment field (if present)
+flatpickr("#appointment-vaccine", {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  minDate: "today",
+  time_24hr: true
+});
+flatpickr("#appointment-grooming", {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  minDate: "today",
+  time_24hr: true
+});
+flatpickr("#appointment-checkup", {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  minDate: "today",
+  time_24hr: true
+});
+
+
