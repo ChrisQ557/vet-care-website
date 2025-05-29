@@ -207,7 +207,7 @@ h1, h2 {
 }
 
 .tab-button.is-active {
-  background-color: #000;
+  background-color:  #dcbc7f !important;
   color: #a6a86c;
   border-color: #a6a86c;
 }

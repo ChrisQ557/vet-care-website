@@ -487,13 +487,6 @@
                     </select>
                   </div>
                 </div>
-
-                <div class="mb-3">
-                  <label for="appointment" class="form-label fw-semibold">Choose Appointment Date & Time</label>
-                  <input type="datetime-local" id="appointment" class="form-control" required>
-                </div>
-
-
                 <div class="mb-3 border-bottom">
                   <label class="form-label fw-semibold">Recommended Vaccines</label>
                   <ul id="recommendedVaccines" class="list-group list-group-flush">
@@ -501,10 +494,25 @@
                   </ul>
                 </div>
 
+                <!-- Vaccine Selection -->
+                <div class="mb-3 d-none" id="vaccineOptionsWrapper">
+                  <label class="form-label fw-semibold">Select Vaccines</label>
+                  <div id="vaccineOptions"></div>
+                </div>
+                <!-- Appointment Date & Time -->
+                <div class="mb-3">
+                  <label for="appointment-vaccine" class="form-label fw-semibold">Choose Appointment Date & Time</label>
+                  <input type="datetime-local" id="appointment-vaccine" class="form-control" required>
+                </div>
+
+                <!-- Confirmation -->
+                <div id="confirmationMessage" class="alert mt-3 d-none"></div>
+
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-secondary">Book Vaccination</button>
+                  <button type="submit" class="btn btn-secondary">Book</button>
                 </div>
               </form>
+              
 
               <!-- Grooming Form -->
               <form id="form-grooming" class="book-form book card p-4 mb-3 d-none">
@@ -537,7 +545,13 @@
                   </select>
                 </div>
 
-                <button type="submit" class="btn btn-secondary">Book Grooming</button>
+                <div class="mb-3">
+                  <label for="appointment-grooming" class="form-label fw-semibold">Choose Appointment Date & Time</label>
+                  <input type="datetime-local" id="appointment-grooming" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Book</button>
+                <div id="groomingConfirmation" class="alert mt-3 d-none"></div>
               </form>
 
               <!-- Checkup Form -->
@@ -567,7 +581,12 @@
                   <textarea id="symptoms" class="form-control" rows="3"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-secondary">Book Checkup</button>
+                <div class="mb-3">
+                  <label for="appointment-checkup" class="form-label fw-semibold">Choose Appointment Date & Time</label>
+                  <input type="datetime-local" id="appointment-checkup" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Book</button>
               </form>
             </div>
 
