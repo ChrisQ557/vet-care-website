@@ -63,7 +63,51 @@ document.addEventListener('DOMContentLoaded', () => {
     groomingConfirmation.classList.remove('d-none');
 
     groomingForm.reset();
+  // Health checkup form validation
+  const checkupForm = document.getElementById('form-checkup');
+  const checkupPetType = document.getElementById('checkupPet');
+  const checkupAppointment = document.getElementById('appointment-checkup');
+  const checkupSymptoms = document.getElementById('symptoms');
+  const checkupConfirmation = document.getElementById('checkupConfirmation');
+
+  checkupForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    checkupConfirmation.classList.add('d-none');
+
+    const petType = checkupPetType.value;
+    const appointmentValue = checkupAppointment.value;
+    const appointmentDate = new Date(appointmentValue);
+    const now = new Date();
+    const symptoms = checkupSymptoms.value.trim();
+
+    // Validation
+    if (!petType) {
+      checkupConfirmation.textContent = "❗ Please select a pet type.";
+      checkupConfirmation.className = "alert alert-danger mt-3";
+      checkupConfirmation.classList.remove('d-none');
+      return;
+    }
+    if (!appointmentValue || appointmentDate <= now) {
+      checkupConfirmation.textContent = "❗ Please choose a future appointment time.";
+      checkupConfirmation.className = "alert alert-danger mt-3";
+      checkupConfirmation.classList.remove('d-none');
+      return;
+    }
+
+    // All good – show confirmation
+    checkupConfirmation.innerHTML = `
+      ✅ <strong>Appointment booked!</strong><br>
+      Pet: ${petType}<br>
+      ${symptoms ? `Symptoms: ${symptoms}<br>` : ''}
+      Appointment: ${appointmentDate.toLocaleString()}
+    `;
+    checkupConfirmation.className = "alert alert-success mt-3";
+    checkupConfirmation.classList.remove('d-none');
+
+    checkupForm.reset();
   });
+
+});
 
 });
   });
