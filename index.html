@@ -38,7 +38,8 @@
       <span class="navbar-brand ms-3 d-flex align-items-center">
         <i class="fa-solid fa-dog me-2"></i> VET CARE <i class="fa-solid fa-cat ms-2"></i>
       </span>
-
+      
+      
       <!-- Dropdown Burger Menu -->
       <div class="dropdown d-lg-none">
         <button class="navbar-toggler dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -52,8 +53,11 @@
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
+          <li><button class="btn btn-outline-primary nav-item" data-bs-toggle="modal" data-bs-target="#signInModal">Sign In</button></li>
         </ul>
+        
       </div>
+      
 
       <!-- Desktop Nav -->
       <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
@@ -64,10 +68,12 @@
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
+          <li><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#signInModal">Sign In</button></li>
         </ul>
       </div>
     </div>
   </nav>
+  
 
   <!-- Main content -->
   <main>
@@ -512,7 +518,7 @@
                   <button type="submit" class="btn btn-secondary">Book</button>
                 </div>
               </form>
-              
+
 
               <!-- Grooming Form -->
               <form id="form-grooming" class="book-form book card p-4 mb-3 d-none">
@@ -546,7 +552,8 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="appointment-grooming" class="form-label fw-semibold">Choose Appointment Date & Time</label>
+                  <label for="appointment-grooming" class="form-label fw-semibold">Choose Appointment Date &
+                    Time</label>
                   <input type="datetime-local" id="appointment-grooming" class="form-control" required>
                 </div>
 
@@ -657,6 +664,32 @@
 
   <!-- Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <!-- Sign In Modal -->
+  <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="form-signin" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="signinEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="signinEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="signinPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signinPassword" required>
+          </div>
+          <div id="signinMessage" class="alert d-none mt-3"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary w-100">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
 </body>
 
