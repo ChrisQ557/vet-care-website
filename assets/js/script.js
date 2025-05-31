@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
 
     // Validation
-    if (!petType) {
-      groomingConfirmation.textContent = "❗ Please select a pet type.";
-      groomingConfirmation.className = "alert alert-danger mt-3";
-      groomingConfirmation.classList.remove('d-none');
-      return;
-    }
+   if (!petType || petType === "Select") {
+  groomingConfirmation.textContent = "❗ Please select a pet type.";
+  groomingConfirmation.className = "alert alert-danger mt-3";
+  groomingConfirmation.classList.remove('d-none');
+  return;
+}
     if (!service) {
       groomingConfirmation.textContent = "❗ Please select a grooming service.";
       groomingConfirmation.className = "alert alert-danger mt-3";
