@@ -1,12 +1,10 @@
 /**
- * Main JS for Pet Services Website
+ * Vet Care Website Main JS
  * - Tab switching
- * - Grooming form validation
- * - Health checkup form validation
- * - Vaccine recommendation and booking
- * - Flatpickr initialization
- * 
- * Refactored for robustness and maintainability.
+ * - Form validation
+ * - Vaccine recommendation
+ * - Flatpickr
+ * - Sign-in modal logic (no sign-out, no booking restriction)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -296,5 +294,56 @@ document.addEventListener('DOMContentLoaded', () => {
         time_24hr: true
       });
     }
+  }
+
+  // --- SIGN IN MODAL LOGIC (no sign-out, no booking restriction) ---
+  const signInForm = document.getElementById('form-signin');
+  const signInEmail = document.getElementById('signinEmail');
+  const signInPassword = document.getElementById('signinPassword');
+  const signInMessage = document.getElementById('signinMessage');
+  const signInModalEl = document.getElementById('signInModal');
+  let signInModal;
+  if (signInModalEl && window.bootstrap) {
+    signInModal = new bootstrap.Modal(signInModalEl);
+  }
+
+  if (signInForm) {
+    signInForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (signInMessage) signInMessage.classList.add('d-none');
+      const email = signInEmail.value.trim();
+      const password = signInPassword.value;
+
+      // Simple validation
+      if (!email || !validateEmail(email)) {
+        showSignInMessage('Please enter a valid email address.', 'danger');
+        return;
+      }
+      if (!password) {
+        showSignInMessage('Please enter your password.', 'danger');
+        return;
+      }
+
+      // For demo: accept any email/password (replace with real backend check)
+      showSignInMessage('✅ Sign in successful!', 'success');
+      setTimeout(() => {
+        if (signInModal) signInModal.hide();
+        signInForm.reset();
+        if (signInMessage) signInMessage.classList.add('d-none');
+      }, 800);
+    });
+  }
+
+  function showSignInMessage(msg, type) {
+    if (signInMessage) {
+      signInMessage.textContent = msg;
+      signInMessage.className = `alert alert-${type} mt-3`;
+      signInMessage.classList.remove('d-none');
+    }
+  }
+
+  function validateEmail(email) {
+    // Simple email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 });

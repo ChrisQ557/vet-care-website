@@ -23,23 +23,20 @@ body {
   font-family: var(--font-body);
   color: var(--rangoon-green);
   background-color: var(--green-smoke);
-  margin: 0;
-  padding: 0;
 }
 
+/* Headings: override Bootstrap's default font for branding */
 h1, h2 {
   font-family: var(--font-heading);
   color: var(--potters-clay);
-  margin-bottom: 1rem;
 }
 
-/* Navbar */
+/* Navbar: custom colours and fonts */
 .navbar {
   background: var(--rangoon-green);
   font-family: var(--font-heading);
 }
 .navbar-brand {
-  font-size: 1.4rem;
   color: var(--harvest-gold);
 }
 .navbar .nav-link {
@@ -60,7 +57,7 @@ h1, h2 {
   color: #fff;
 }
 
-/* Carousel */
+/* Carousel: custom caption background and image height */
 .carousel-caption {
   background: rgba(39, 40, 24, 0.6);
   border-radius: 0.5rem;
@@ -72,37 +69,19 @@ h1, h2 {
   object-fit: cover;
 }
 
-/* Cards */
-.service-card {
-  background: var(--green-smoke);
-  color: var(--rangoon-green);
-  border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
-  border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+/* Cards: custom backgrounds for card variants and hover effect */
 .card-1 { background: var(--corduroy); }
 .card-2 { background: var(--zorba); }
 .card-3 { background: var(--go-ben); }
 .card-4 { background: var(--potters-clay); }
-.card-title {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
-.card-text {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: #fff;
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Sections */
-.register, .contact, .book {
+/* Sections: custom backgrounds and layout */
+.register, .contact, .book,
+.dog-care-section, .cat-care-section {
   min-height: 90vh;
   border-radius: 1rem;
   margin-bottom: 2rem;
@@ -110,39 +89,24 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
 }
-
-.dog-care-section, .cat-care-section {
-   min-height: 100vh;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} 
-
 .dog-care-section { background: var(--corduroy); }
 .cat-care-section { background: var(--zorba); }
 .register { background: var(--go-ben); }
 .contact { background: var(--potters-clay); }
 .book { background: var(--zorba); }
 
-/* Accordion */
+/* Accordion: custom colors and box-shadow */
 .accordion-item {
   background: var(--rangoon-green);
   border: 1px solid var(--potters-clay);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  overflow: hidden;
 }
 .accordion-button {
   background: var(--dallas);
   color: var(--harvest-gold);
   font-weight: 600;
-  font-size: 1rem;
-  padding: 1rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .accordion-button:not(.collapsed) {
   background: var(--orange-roughy);
@@ -154,76 +118,45 @@ h1, h2 {
 .accordion-body {
   background: var(--go-ben);
   color: #fff;
-  padding: 1rem 1.25rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-.accordion-button i {
-  color: var(--green-smoke);
-}
-.accordion-button:focus {
-  box-shadow: 0 0 0 0.25rem rgba(220,188,127,0.5);
 }
 
-/* Book Section */
+/* Book Section: custom heading and button */
 .book-section h2,
 .book-form h2 {
   font-family: var(--font-heading);
   color: var(--dallas);
-  margin-bottom: 1.5rem;
 }
 .book-section h2 { font-size: 2.5rem; }
 .book-form h2 { font-size: 2rem; }
-.book-form input:focus,
-.book-form select:focus,
-.book-form textarea:focus {
-  border-color: var(--rangoon-green);
-  outline: none;
-}
 .book-form button {
-  width: 100%;
-  padding: 12px;
   background: var(--harvest-gold);
-  border: none;
-  border-radius: 4px;
   color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
+/* Tabs */
 .tab-button {
   background-color: #2b2626;
   color: #ccc;
-  padding: 0.5rem 1rem;
   border: 1px solid #444;
   border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
 }
-
 .tab-button:hover {
   background-color: #444;
   color: #fff;
 }
-
 .tab-button.is-active {
   background-color:  #dcbc7f !important;
   color: #a6a86c;
   border-color: #a6a86c;
 }
 
-/* Register & Contact shared styles */
+/* Register & Contact: custom heading, form background, and border accent */
 .register h2, .contact h2 {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 600;
   color: var(--rangoon-green);
-  text-align: center;
-  margin-bottom: 2rem;
 }
 .register form, .contact form {
   background: rgba(255,255,255,0.95);
-  padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
@@ -234,22 +167,10 @@ h1, h2 {
   border-left: 5px solid var(--potters-clay);
 }
 
-/* Inputs & Buttons */
-.register input, .register select,
-.contact input, .contact textarea {
-  border: 1px solid var(--corduroy);
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  font-size: 1rem;
-  background: #fff;
-  color: var(--rangoon-green);
-}
+/* Inputs & Buttons: custom colors and focus */
 .register input:focus, .register select:focus {
   border-color: var(--orange-roughy);
   box-shadow: 0 0 0 0.2rem rgba(184,81,29,0.25);
-  outline: none;
 }
 #contactForm input:focus, #contactForm textarea:focus {
   border-color: var(--potters-clay);
@@ -257,13 +178,7 @@ h1, h2 {
 }
 .register button, .contact button {
   background: var(--potters-clay);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
   color: #fff;
-  width: 100%;
-  transition: background-color 0.3s ease;
 }
 .register button:hover {
   background: #a04317;
@@ -280,22 +195,16 @@ footer {
 }
 .footer-heading {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
   color: var(--harvest-gold);
 }
 .footer a {
   color: var(--green-smoke);
-  text-decoration: none;
 }
 .footer a:hover {
   color: var(--orange-roughy);
-  text-decoration: underline;
 }
 .social-icons a {
   color: var(--harvest-gold);
-  margin-right: 10px;
-  font-size: 1.2rem;
 }
 
 /* Background Image Section */
