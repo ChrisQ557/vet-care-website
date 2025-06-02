@@ -4,7 +4,8 @@
  * - Form validation
  * - Vaccine recommendation
  * - Flatpickr
- * - Sign-in modal logic (no sign-out, no booking restriction)
+ * - Sign-in modal logic
+ * - Booking restriction based on authentication
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -150,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const appointmentWrapper = document.getElementById('appointmentWrapper');
   const appointmentInput = document.getElementById('appointment-vaccine');
   const confirmation = document.getElementById('confirmationMessage');
-  const form = document.getElementById('form-vaccine');
+  const vaccineForm = document.getElementById('form-vaccine');
 
   function getRecommendedVaccines(type, ageInMonths) {
     if (type === 'dog') {
@@ -204,8 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (petAgeInput) petAgeInput.addEventListener('input', updateVaccineList);
   if (ageUnitSelect) ageUnitSelect.addEventListener('change', updateVaccineList);
 
-  if (form) {
-    form.addEventListener('submit', e => {
+  if (vaccineForm) {
+    vaccineForm.addEventListener('submit', e => {
       e.preventDefault();
       if (confirmation) confirmation.classList.add('d-none');
 
@@ -261,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Reset form
-      form.reset();
+      vaccineForm.reset();
       if (recommendedList) recommendedList.innerHTML = '<li class="list-group-item">Select pet type and age to see recommendations.</li>';
       if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.add('d-none');
       if (appointmentWrapper) appointmentWrapper.classList.add('d-none');
@@ -296,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- SIGN IN MODAL LOGIC (no sign-out, no booking restriction) ---
+  // --- SIGN IN MODAL LOGIC ---
   const signInForm = document.getElementById('form-signin');
   const signInEmail = document.getElementById('signinEmail');
   const signInPassword = document.getElementById('signinPassword');
@@ -330,6 +331,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (signInModal) signInModal.hide();
         signInForm.reset();
         if (signInMessage) signInMessage.classList.add('d-none');
+        // Set authentication state
+        localStorage.setItem('isAuthenticated', 'true');
+        // Update booking forms' auth state
+        if (typeof updateBookingFormsAuthState === 'function') {
+          updateBookingFormsAuthState();
+        }
       }, 800);
     });
   }
@@ -346,4 +353,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simple email regex
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
-});
+
+  // --- Booking Auth State ---
+  function updateBookingFormsAuthState() {
+    document.querySelectorAll('.book-form').forEach(form => {
+      const authMsg = form.querySelector('#bookingAuthMessage');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (!authMsg || !submitBtn) return;
+
+      if (!isUserAuthenticated()) {
+        authMsg.classList.remove('d-none');
+        submitBtn.disabled = true;
+      } else {
+        authMsg.classList.add('d-none');
+        submitBtn.disabled = false;
+      }
+    });
+  }
+  window.updateBookingFormsAuthState = updateBookingFormsAuthState;
+  updateBookingFormsAuthState();
+
+  // Listen for custom sign out event
+  window.addEventListener('userSignedOut', updateBookingFormsAuthState);
+
+  // --- Sign In Modal from Booking Message ---
+  document.querySelectorAll('#openSignIn').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (signInModalEl && window.bootstrap) {
+        if (!signInModal) signInModal = new bootstrap.Modal(signInModalEl);
+        signInModal.show();
+      }
+    });
+  });
