@@ -1,15 +1,20 @@
 // assets/js/auth.js
 
 /**
- * Authentication logic for sign in/out and modal control using Micromodal.
+ * Authentication logic for sign in/out, registration, and modal control using Micromodal.
  * Bootstrap modal handling has been removed.
  */
 
-// Example: Attach sign-in form handler
 document.addEventListener('DOMContentLoaded', function () {
+  // Attach sign-in form handler
   const signInForm = document.getElementById('form-signin');
   if (signInForm) {
     signInForm.addEventListener('submit', handleSignInSubmit);
+  }
+  // Attach register form handler
+  const registerForm = document.getElementById('registerForm');
+  if (registerForm) {
+    registerForm.addEventListener('submit', handleRegisterSubmit);
   }
   // Attach auth button listeners (Sign In/Sign Out)
   attachAuthButtonListeners();
@@ -31,6 +36,9 @@ function handleSignInSubmit(e) {
     messageDiv.classList.remove('d-none', 'alert-danger');
     messageDiv.classList.add('alert-success');
     messageDiv.textContent = "Sign in successful!";
+
+    // Set authentication state
+    localStorage.setItem('isAuthenticated', 'true');
 
     setTimeout(() => {
       // Close modal (Micromodal)
@@ -54,6 +62,56 @@ function handleSignInSubmit(e) {
     messageDiv.classList.remove('d-none', 'alert-success');
     messageDiv.classList.add('alert-danger');
     messageDiv.textContent = "Please enter both email and password.";
+  }
+}
+
+/**
+ * Handles register form submission.
+ * @param {Event} e
+ */
+function handleRegisterSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const petType = document.getElementById('petType').value;
+  const password = document.getElementById('password').value.trim();
+  const messageDiv = document.getElementById('registerMessage');
+
+  // Basic validation (expand as needed)
+  if (name && email && petType && password) {
+    // Simulate registration logic (replace with API call later)
+    // Optionally, store user info in localStorage for demo purposes
+    // localStorage.setItem('user', JSON.stringify({ name, email, petType }));
+
+    // Optionally, auto-sign-in after registration
+    localStorage.setItem('isAuthenticated', 'true');
+
+    // Show success message
+    messageDiv.classList.remove('d-none', 'alert-danger');
+    messageDiv.classList.add('alert', 'alert-success');
+    messageDiv.innerHTML = `
+      Registration successful! You can now <a href="#book" class="alert-link">book an appointment</a> using the form below.
+    `;
+
+    // Reset form
+    e.target.reset();
+
+    // Update auth UI
+    updateAuthUI(true);
+
+    // Optionally update booking forms or UI
+    if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
+
+    // Hide message after a delay (optional)
+    setTimeout(() => {
+      messageDiv.classList.add('d-none');
+      messageDiv.textContent = "";
+    }, 4000);
+  } else {
+    // Show error message
+    messageDiv.classList.remove('d-none', 'alert-success');
+    messageDiv.classList.add('alert', 'alert-danger');
+    messageDiv.textContent = "Please fill in all fields.";
   }
 }
 
