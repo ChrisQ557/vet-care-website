@@ -6,6 +6,7 @@
  * - Flatpickr
  * - Sign-in modal logic
  * - Booking restriction based on authentication
+ * - Registration form full name validation (NEW)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +29,43 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.add('is-active');
     });
   });
+
+  // --- Registration Form: Full Name Validation ---
+ // --- Registration Form: Full Name Validation ---
+  const registerForm = document.getElementById('registerForm');
+  const nameInput = document.getElementById('name');
+  const registerMessage = document.getElementById('registerMessage');
+
+  if (registerForm && nameInput && registerMessage) {
+    function isFullNameValid(name) {
+      // At least two non-empty words separated by whitespace
+      return /^\s*\S+\s+\S+.*$/.test(name.trim());
+    }
+
+    registerForm.addEventListener('submit', function (e) {
+      const nameValue = nameInput.value.trim();
+      if (!isFullNameValid(nameValue)) {
+        e.preventDefault();
+        registerMessage.innerHTML = '<div class="alert alert-danger">Please enter your first and last name.</div>';
+        nameInput.focus();
+        return false;
+      }
+      // Clear the message on successful validation
+      registerMessage.innerHTML = '';
+      // Allow form to submit normally
+    });
+  }
+
+    // Live feedback as user types
+    nameInput.addEventListener('input', function () {
+      const nameValue = nameInput.value.trim();
+      if (!isFullNameValid(nameValue)) {
+        registerMessage.innerHTML = '<div class="alert alert-danger">Please enter your first and last name.</div>';
+      } else {
+        registerMessage.innerHTML = '';
+      }
+    });
+  }
 
   // --- Grooming Form Validation ---
   const groomingForm = document.getElementById('form-grooming');
@@ -420,5 +458,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-});
+  // --- Password Show/Hide for Registration (if not already handled inline) ---
+  const showPasswordCheckbox = document.getElementById('showPasswordRegister');
+  const passwordInput = document.getElementById('password');
+  if (showPasswordCheckbox && passwordInput) {
+    showPasswordCheckbox.addEventListener('change', function () {
+      passwordInput.type = this.checked ? 'text' : 'password';
+    });
+  }
 
+  // --- Utility: Check if user is authenticated ---
+  function isUserAuthenticated() {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  }
+});

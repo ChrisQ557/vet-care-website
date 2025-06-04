@@ -401,7 +401,8 @@
                 <h2 class="text-center mb-5 text-dark">Join our Vet Community</h2>
                 <div class="mb-3">
                   <label for="name" class="form-label">Full Name</label>
-                  <input type="text" id="name" name="name" class="form-control" required>
+                  <input type="text" id="name" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
+                    title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
