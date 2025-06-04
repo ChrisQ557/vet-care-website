@@ -212,3 +212,65 @@ footer {
   background: url('../images/matt-seymour-9htTVAs3rAM-unsplash.jpg') center/cover fixed no-repeat;
   padding: 3rem 0;
 }
+
+/* Micromodal Custom Styling */
+.modal.micromodal-slide {
+  display: none;
+}
+.modal.micromodal-slide[aria-hidden="false"] {
+  display: block;
+}
+.modal__overlay {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal__container {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  animation: fadeInScale 0.2s;
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.modal__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+.modal__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal__close:hover {
+  color: #333;
+}
+.modal__content {
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 500px) {
+  .modal__container {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+}

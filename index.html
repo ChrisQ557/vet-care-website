@@ -53,9 +53,8 @@
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
-          <li><button class="btn btn btn-outline-secondary nav-item" data-bs-toggle="modal"
-              data-bs-target="#signInModal">Sign In</button></li>
-              
+          <li><button class="btn btn btn-outline-secondary authButton">Sign In</button></li>
+
         </ul>
 
       </div>
@@ -70,7 +69,7 @@
           <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
-          <li><button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#signInModal">Sign
+          <li><button class="btn btn-outline-secondary authButton">Sign
               In</button></li>
         </ul>
       </div>
@@ -468,9 +467,9 @@
               <!-- Vaccination Form -->
               <form id="form-vaccine" class="book-form book card p-4 mb-3">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-                <div id="bookingAuthMessage" class="alert alert-warning mb-4 d-none">
+                <div class="bookingAuthMessage alert alert-warning mb-4 d-none">
                   Please <a href="#register" class="alert-link">register</a> or
-                  <a href="#" id="openSignIn" class="alert-link">sign in</a> to book an appointment.
+                  <a href="#" class="openSignIn alert-link">sign in</a> to book an appointment.
                 </div>
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4">
@@ -529,9 +528,9 @@
               <!-- Grooming Form -->
               <form id="form-grooming" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-                <div id="bookingAuthMessage" class="alert alert-warning mb-4 d-none">
+                <div class="bookingAuthMessage alert alert-warning mb-4 d-none">
                   Please <a href="#register" class="alert-link">register</a> or
-                  <a href="#" id="openSignIn" class="alert-link">sign in</a> to book an appointment.
+                  <a href="#" class="openSignIn alert-link">sign in</a> to book an appointment.
                 </div>
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4">
@@ -573,9 +572,9 @@
               <!-- Checkup Form -->
               <form id="form-checkup" class="book-form book card p-4 mb-3 d-none">
                 <h2 class="text-center mb-5 text-dark">Book a Service</h2>
-                <div id="bookingAuthMessage" class="alert alert-warning mb-4 d-none">
+                <div class="bookingAuthMessage alert alert-warning mb-4 d-none">
                   Please <a href="#register" class="alert-link">register</a> or
-                  <a href="#" id="openSignIn" class="alert-link">sign in</a> to book an appointment.
+                  <a href="#" class="openSignIn alert-link">sign in</a> to book an appointment.
                 </div>
                 <!-- Service Tabs -->
                 <div class="d-flex justify-content-center mb-4">
@@ -677,15 +676,15 @@
   <!-- Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-  <!-- Sign In Modal -->
-  <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <form id="form-signin" class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+  <!-- Sign In Modal (Micromodal) -->
+  <div class="modal micromodal-slide" id="signInModal">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="signInModalLabel">
+        <header class="modal__header">
+          <h5 class="modal__title" id="signInModalLabel">Sign In</h5>
+          <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+        </header>
+        <form id="form-signin" class="modal__content">
           <div class="mb-3">
             <label for="signinEmail" class="form-label">Email address</label>
             <input type="email" class="form-control" id="signinEmail" required>
@@ -695,13 +694,22 @@
             <input type="password" class="form-control" id="signinPassword" required>
           </div>
           <div id="signinMessage" class="alert d-none mt-3"></div>
-        </div>
-        <div class="modal-footer">
           <button type="submit" class="btn btn-primary w-100">Sign In</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
+
+  <!-- Micromodal JS -->
+  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      MicroModal.init({
+        disableScroll: true,
+        awaitCloseAnimation: true
+      });
+    });
+  </script>
 
 </body>
 

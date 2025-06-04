@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const recommendedList = document.getElementById('recommendedVaccines');
   const vaccineOptionsWrapper = document.getElementById('vaccineOptionsWrapper');
   const vaccineOptions = document.getElementById('vaccineOptions');
-  const appointmentWrapper = document.getElementById('appointmentWrapper');
   const appointmentInput = document.getElementById('appointment-vaccine');
   const confirmation = document.getElementById('confirmationMessage');
   const vaccineForm = document.getElementById('form-vaccine');
@@ -174,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!type || isNaN(ageValue)) {
       if (recommendedList) recommendedList.innerHTML = '<li class="list-group-item">Select pet type and age to see recommendations.</li>';
       if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.add('d-none');
-      if (appointmentWrapper) appointmentWrapper.classList.add('d-none');
       return;
     }
 
@@ -197,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.remove('d-none');
-    if (appointmentWrapper) appointmentWrapper.classList.remove('d-none');
     if (confirmation) confirmation.classList.add('d-none');
   }
 
@@ -265,7 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
       vaccineForm.reset();
       if (recommendedList) recommendedList.innerHTML = '<li class="list-group-item">Select pet type and age to see recommendations.</li>';
       if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.add('d-none');
-      if (appointmentWrapper) appointmentWrapper.classList.add('d-none');
     });
   }
 
@@ -303,10 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const signInPassword = document.getElementById('signinPassword');
   const signInMessage = document.getElementById('signinMessage');
   const signInModalEl = document.getElementById('signInModal');
-  let signInModal;
-  if (signInModalEl && window.bootstrap) {
-    signInModal = new bootstrap.Modal(signInModalEl);
-  }
+  // Micromodal is used for modal logic. No Bootstrap modal logic here.
 
   if (signInForm) {
     signInForm.addEventListener('submit', function (e) {
@@ -327,17 +320,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // For demo: accept any email/password (replace with real backend check)
       showSignInMessage('✅ Sign in successful!', 'success');
-      setTimeout(() => {
-        if (signInModal) signInModal.hide();
-        signInForm.reset();
-        if (signInMessage) signInMessage.classList.add('d-none');
-        // Set authentication state
-        localStorage.setItem('isAuthenticated', 'true');
-        // Update booking forms' auth state
-        if (typeof updateBookingFormsAuthState === 'function') {
-          updateBookingFormsAuthState();
-        }
-      }, 800);
+      // Set authentication state
+      localStorage.setItem('isAuthenticated', 'true');
+      // Update booking forms' auth state
+      if (typeof updateBookingFormsAuthState === 'function') {
+        updateBookingFormsAuthState();
+      }
+      // Hide modal and reset form (Micromodal)
+      if (window.MicroModal) MicroModal.close('signInModal');
+      signInForm.reset();
+      if (signInMessage) signInMessage.classList.add('d-none');
     });
   }
 
@@ -357,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Booking Auth State ---
   function updateBookingFormsAuthState() {
     document.querySelectorAll('.book-form').forEach(form => {
-      const authMsg = form.querySelector('#bookingAuthMessage');
+      const authMsg = form.querySelector('.bookingAuthMessage');
       const submitBtn = form.querySelector('button[type="submit"]');
       if (!authMsg || !submitBtn) return;
 
@@ -369,20 +361,64 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
       }
     });
+    updateAuthButtons();
   }
   window.updateBookingFormsAuthState = updateBookingFormsAuthState;
   updateBookingFormsAuthState();
+
+  // --- Auth Button Logic ---
+  function updateAuthButtons() {
+    document.querySelectorAll('.authButton').forEach(btn => {
+      if (isUserAuthenticated()) {
+        btn.textContent = 'Sign Out';
+        btn.classList.remove('btn-outline-secondary');
+        btn.classList.add('btn-danger');
+        btn.removeAttribute('data-bs-toggle');
+        btn.removeAttribute('data-bs-target');
+        btn.onclick = function (e) {
+          e.preventDefault();
+          signOutUser();
+        };
+      } else {
+        btn.textContent = 'Sign In';
+        btn.classList.remove('btn-danger');
+        btn.classList.add('btn-outline-secondary');
+        // btn.setAttribute('data-bs-toggle', 'modal'); // Removed for Micromodal compatibility
+        // btn.setAttribute('data-bs-target', '#signInModal'); // Removed for Micromodal compatibility
+        btn.onclick = function (e) {
+          if (btn.textContent.trim() === 'Sign In') {
+            e.preventDefault();
+            if (window.MicroModal) MicroModal.show('signInModal');
+          }
+        };
+      }
+    });
+  }
+
+  // --- Sign Out Logic ---
+  function signOutUser() {
+    // Remove authentication state
+    localStorage.removeItem('isAuthenticated');
+    // Hide modal if open
+    if (window.MicroModal) MicroModal.close('signInModal');
+    // Update UI
+    updateBookingFormsAuthState();
+    // Optionally, show a message or reload
+    window.dispatchEvent(new Event('userSignedOut'));
+  }
 
   // Listen for custom sign out event
   window.addEventListener('userSignedOut', updateBookingFormsAuthState);
 
   // --- Sign In Modal from Booking Message ---
-  document.querySelectorAll('#openSignIn').forEach(link => {
+  document.querySelectorAll('.openSignIn').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      if (signInModalEl && window.bootstrap) {
-        if (!signInModal) signInModal = new bootstrap.Modal(signInModalEl);
-        signInModal.show();
+      if (window.MicroModal) {
+        MicroModal.show('signInModal');
       }
     });
   });
+
+});
+
