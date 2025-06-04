@@ -418,11 +418,16 @@
                 <div class="mb-3">
                   <label for="password" class="form-label">Create Password</label>
                   <input type="password" id="password" name="password" class="form-control" required>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="showPasswordRegister">
+                    <label class="form-check-label" for="showPasswordRegister">
+                      Show Password
+                    </label>
+                  </div>
                 </div>
                 <div id="registerMessage" class="mt-3"></div>
                 <button type="submit" class="btn btn-primary w-100">Register</button>
               </form>
-              
             </div>
           </div>
         </div>
@@ -434,9 +439,6 @@
 
           <div class="mx-auto" style="max-width: 1000px;">
             <div class="row g-5 align-items-center">
-
-
-
               <form id="contactForm" class="p-4 shadow rounded contact">
                 <h2 class="text-center mb-5 text-dark">Contact Us</h2>
                 <div class="mb-3">
@@ -705,10 +707,13 @@
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      MicroModal.init({
-        disableScroll: true,
-        awaitCloseAnimation: true
-      });
+      const showPasswordCheckbox = document.getElementById('showPasswordRegister');
+      const passwordInput = document.getElementById('password');
+      if (showPasswordCheckbox && passwordInput) {
+        showPasswordCheckbox.addEventListener('change', function () {
+          passwordInput.type = this.checked ? 'text' : 'password';
+        });
+      }
     });
   </script>
 
