@@ -172,7 +172,7 @@
 
       <!-- Dog Care Section -->
       <!-- role attribute in sections , https://stackoverflow.com/questions/10403138/what-is-the-purpose-of-the-role-attribute-in-html -->
-      <section id="dogCare" class="container my-5 dog-care-section" role="region" aria-label="Dog Care Section">
+      <section id="dogCare" class="container  my-5 dog-care-section" role="region" aria-label="Dog Care Section">
         <h2 class="text-center mb-4">Dog Care</h2>
         <div class="row g-4 align-items-start">
           <div class="col-md-6">
@@ -444,7 +444,7 @@
                 <h2 class="text-center mb-5 text-dark">Contact Us</h2>
                 <div class="mb-3">
                   <label for="contactName" class="form-label">Full Name</label>
-                   <input type="text" id="name" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
+                  <input type="text" id="name" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
                     title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
@@ -456,6 +456,7 @@
                   <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="w-100">Send Message</button>
+                <div id="contactConfirmation" class="alert mt-3 d-none"></div>
               </form>
 
             </div>
@@ -714,6 +715,22 @@
       if (showPasswordCheckbox && passwordInput) {
         showPasswordCheckbox.addEventListener('change', function () {
           passwordInput.type = this.checked ? 'text' : 'password';
+        });
+      }
+
+      // Contact form confirmation message
+      const contactForm = document.getElementById('contactForm');
+      const contactConfirmation = document.getElementById('contactConfirmation');
+      if (contactForm && contactConfirmation) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          contactConfirmation.textContent = '✅ Thank you for contacting us! We have received your message.';
+          contactConfirmation.className = 'alert alert-success mt-1';
+          contactConfirmation.classList.remove('d-none');
+          contactForm.reset();
+          setTimeout(function () {
+            contactConfirmation.classList.add('d-none');
+          }, 3000);
         });
       }
     });

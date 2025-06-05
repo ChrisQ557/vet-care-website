@@ -80,8 +80,7 @@ h1, h2 {
 }
 
 /* Sections: custom backgrounds and layout */
-.register, .contact, .book,
-.dog-care-section, .cat-care-section {
+.register, .contact, .book {
   min-height: 90vh;
   border-radius: 1rem;
   margin-bottom: 2rem;
@@ -89,6 +88,17 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
 }
+
+.dog-care-section, .cat-care-section {
+  min-height: 100vh;
+   border-radius: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 .dog-care-section { background: var(--corduroy); }
 .cat-care-section { background: var(--zorba); }
 .register { background: var(--go-ben); }
