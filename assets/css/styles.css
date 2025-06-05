@@ -145,9 +145,11 @@ h1, h2 {
   color: #fff;
 }
 .tab-button.is-active {
-  background-color:  #dcbc7f !important;
-  color: #a6a86c;
-  border-color: #a6a86c;
+  background-color: #d49008 !important;
+  color: #2b2626 !important;
+  border: 1px solid #b89b5e !important;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(220,188,127,0.25);
 }
 
 /* Register & Contact: custom heading, form background, and border accent */
