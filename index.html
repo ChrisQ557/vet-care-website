@@ -443,8 +443,9 @@
               <form id="contactForm" class="p-4 shadow rounded contact">
                 <h2 class="text-center mb-5 text-dark">Contact Us</h2>
                 <div class="mb-3">
-                  <label for="contactName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="contactName" required>
+                  <label for="contactName" class="form-label">Full Name</label>
+                   <input type="text" id="name" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
+                    title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
                   <label for="contactEmail" class="form-label">Email</label>
