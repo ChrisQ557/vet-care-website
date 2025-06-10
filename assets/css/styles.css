@@ -179,6 +179,54 @@ h1, h2 {
   border-left: 5px solid var(--potters-clay);
 }
 
+/* === Harmonized Card Style for Forms (EASY REVERT: Remove .vet-section-card block and class from HTML) === */
+.vet-section-card {
+  background: var(--corduroy) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 8px 24px rgba(39,40,24,0.18) !important;
+  padding: 2.5rem 2rem !important;
+  max-width: 600px;
+  margin: 2rem auto !important;
+  border: 2px solid var(--potters-clay) !important;
+  color: #fff !important;
+}
+.vet-section-card h2, .vet-section-card h3 {
+  color: var(--harvest-gold) !important;
+  font-family: var(--font-heading);
+}
+.vet-section-card label, .vet-section-card .form-label {
+  color: var(--harvest-gold) !important;
+  font-weight: 600;
+}
+.vet-section-card input, .vet-section-card select, .vet-section-card textarea {
+  background: var(--zorba) !important;
+  color: var(--rangoon-green) !important;
+  border-radius: 0.5rem !important;
+  border: 1.5px solid var(--potters-clay) !important;
+}
+.vet-section-card input:focus, .vet-section-card select:focus, .vet-section-card textarea:focus {
+  border-color: var(--orange-roughy) !important;
+  box-shadow: 0 0 0 0.2rem rgba(184,81,29,0.18) !important;
+}
+.vet-section-card button, .vet-section-card .btn {
+  background: var(--harvest-gold) !important;
+  color: var(--rangoon-green) !important;
+  border-radius: 0.5rem !important;
+  font-weight: bold;
+  border: none;
+  margin-top: 1rem;
+}
+.vet-section-card button:hover, .vet-section-card .btn:hover {
+  background: var(--orange-roughy) !important;
+  color: #fff !important;
+}
+.vet-section-card .alert-success {
+  background: var(--green-smoke) !important;
+  color: var(--rangoon-green) !important;
+  border: 1.5px solid var(--harvest-gold) !important;
+}
+/* === END Harmonized Card Style for Forms === */
+
 /* Inputs & Buttons: custom colors and focus */
 .register input:focus, .register select:focus {
   border-color: var(--orange-roughy);
