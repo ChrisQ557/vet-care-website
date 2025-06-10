@@ -71,6 +71,7 @@
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
           <li><button class="btn btn-outline-secondary authButton">Sign
               In</button></li>
+          <li><button class="btn btn-outline-primary ms-2" id="viewAppointmentsBtn" type="button">View My Appointments</button></li>
         </ul>
       </div>
     </div>
@@ -710,6 +711,9 @@
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      if (window.MicroModal && typeof MicroModal.init === 'function') {
+        MicroModal.init();
+      }
       const showPasswordCheckbox = document.getElementById('showPasswordRegister');
       const passwordInput = document.getElementById('password');
       if (showPasswordCheckbox && passwordInput) {

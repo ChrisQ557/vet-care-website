@@ -24,41 +24,50 @@ document.addEventListener('DOMContentLoaded', function () {
  * Handles sign-in form submission.
  * @param {Event} e
  */
-function handleSignInSubmit(e) {
+async function handleSignInSubmit(e) {
   e.preventDefault();
   const email = document.getElementById('signinEmail').value.trim();
   const password = document.getElementById('signinPassword').value.trim();
   const messageDiv = document.getElementById('signinMessage');
 
-  // Dummy authentication logic (replace with real AJAX/auth)
   if (email && password) {
-    // Show success message
-    messageDiv.classList.remove('d-none', 'alert-danger');
-    messageDiv.classList.add('alert-success');
-    messageDiv.textContent = "Sign in successful!";
-
-    // Set authentication state
-    localStorage.setItem('isAuthenticated', 'true');
-
-    setTimeout(() => {
-      // Close modal (Micromodal)
-      if (document.getElementById('signInModal')) {
-        MicroModal.close('signInModal');
+    try {
+      const payload = { email, password };
+      const response = await fetch('https://reqres.in/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'reqres-free-v1'
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      if (response.ok) {
+        messageDiv.classList.remove('d-none', 'alert-danger');
+        messageDiv.classList.add('alert-success');
+        messageDiv.textContent = "Sign in successful!";
+        localStorage.setItem('isAuthenticated', 'true');
+        setTimeout(() => {
+          if (document.getElementById('signInModal')) MicroModal.close('signInModal');
+          e.target.reset();
+          if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
+          updateAuthUI(true);
+          setTimeout(() => {
+            messageDiv.classList.add('d-none');
+            messageDiv.textContent = "";
+          }, 1000);
+        }, 800);
+      } else {
+        messageDiv.classList.remove('d-none', 'alert-success');
+        messageDiv.classList.add('alert-danger');
+        messageDiv.textContent = data.error || "Login failed. Please try again.";
       }
-      // Reset form
-      e.target.reset();
-      // Optionally update booking forms or UI
-      if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
-      // Update auth UI
-      updateAuthUI(true);
-      // Hide message after a short delay
-      setTimeout(() => {
-        messageDiv.classList.add('d-none');
-        messageDiv.textContent = "";
-      }, 1000);
-    }, 800);
+    } catch (err) {
+      messageDiv.classList.remove('d-none', 'alert-success');
+      messageDiv.classList.add('alert-danger');
+      messageDiv.textContent = "Login failed. Please try again.";
+    }
   } else {
-    // Show error message
     messageDiv.classList.remove('d-none', 'alert-success');
     messageDiv.classList.add('alert-danger');
     messageDiv.textContent = "Please enter both email and password.";
@@ -71,7 +80,7 @@ function handleSignInSubmit(e) {
  */
 async function handleRegisterSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('name').value.trim();
+  const name = document.getElementById('registerName').value.trim();
   const email = document.getElementById('email').value.trim();
   const petType = document.getElementById('petType').value;
   const password = document.getElementById('password').value.trim();
@@ -79,17 +88,16 @@ async function handleRegisterSubmit(e) {
 
   // Basic validation (expand as needed)
   if (name && email && petType && password) {
-    // Use API for registration
+    // Use Reqres API for registration
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('petType', petType);
-      formData.append('password', password);
-      // Replace with your actual API endpoint for registration
-      const response = await fetch('https://chrisq557.github.io/vet-care-website/auth/register', {
-        method: 'POST',
-        body: formData
+      const payload = { email, password };
+      const response = await fetch('https://reqres.in/api/register', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': 'reqres-free-v1'
+      },
+      body: JSON.stringify(payload)
       });
       const data = await response.json();
       if (response.ok) {

@@ -1,10 +1,8 @@
 /**
  * Vet Care Website Main JS
  * - Tab switching
- * - Form validation
  * - Vaccine recommendation
  * - Flatpickr
- * - Sign-in modal logic
  * - Booking restriction based on authentication
  */
 
@@ -37,118 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Grooming Form Validation ---
-  const groomingForm = document.getElementById('form-grooming');
-  if (groomingForm) {
-    const groomingPetType = document.getElementById('groomPetType');
-    const groomingService = document.getElementById('groomService');
-    const groomingAppointment = document.getElementById('appointment-grooming');
-    const groomingConfirmation = document.getElementById('groomingConfirmation');
-
-    groomingForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (groomingConfirmation) groomingConfirmation.classList.add('d-none');
-
-      const petType = groomingPetType ? groomingPetType.value : "";
-      const service = groomingService ? groomingService.value : "";
-      const appointmentValue = groomingAppointment ? groomingAppointment.value : "";
-      const appointmentDate = new Date(appointmentValue);
-      const now = new Date();
-
-      // Validation
-      if (!petType || petType === "Select") {
-        if (groomingConfirmation) {
-          groomingConfirmation.textContent = "❗ Please select a pet type.";
-          groomingConfirmation.className = "alert alert-danger mt-3";
-          groomingConfirmation.classList.remove('d-none');
-        }
-        return;
-      }
-      if (!service) {
-        if (groomingConfirmation) {
-          groomingConfirmation.textContent = "❗ Please select a grooming service.";
-          groomingConfirmation.className = "alert alert-danger mt-3";
-          groomingConfirmation.classList.remove('d-none');
-        }
-        return;
-      }
-      if (!appointmentValue || appointmentDate <= now) {
-        if (groomingConfirmation) {
-          groomingConfirmation.textContent = "❗ Please choose a future appointment time.";
-          groomingConfirmation.className = "alert alert-danger mt-3";
-          groomingConfirmation.classList.remove('d-none');
-        }
-        return;
-      }
-
-      // All good – show confirmation
-      if (groomingConfirmation) {
-        groomingConfirmation.innerHTML = `
-          ✅ <strong>Appointment booked!</strong><br>
-          Pet: ${petType}<br>
-          Service: ${service}<br>
-          Appointment: ${appointmentDate.toLocaleString()}
-        `;
-        groomingConfirmation.className = "alert alert-success mt-3";
-        groomingConfirmation.classList.remove('d-none');
-      }
-
-      groomingForm.reset();
-    });
-  }
-
-  // --- Health Checkup Form Validation ---
-  const checkupForm = document.getElementById('form-checkup');
-  if (checkupForm) {
-    const checkupPetType = document.getElementById('checkupPet');
-    const checkupAppointment = document.getElementById('appointment-checkup');
-    const checkupSymptoms = document.getElementById('symptoms');
-    const checkupConfirmation = document.getElementById('checkupConfirmation');
-
-    checkupForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (checkupConfirmation) checkupConfirmation.classList.add('d-none');
-
-      const petType = checkupPetType ? checkupPetType.value : "";
-      const appointmentValue = checkupAppointment ? checkupAppointment.value : "";
-      const appointmentDate = new Date(appointmentValue);
-      const now = new Date();
-      const symptoms = checkupSymptoms ? checkupSymptoms.value.trim() : "";
-
-      // Validation
-      if (!petType || petType === "Select") {
-        if (checkupConfirmation) {
-          checkupConfirmation.textContent = "❗ Please select a pet type.";
-          checkupConfirmation.className = "alert alert-danger mt-3";
-          checkupConfirmation.classList.remove('d-none');
-        }
-        return;
-      }
-      if (!appointmentValue || appointmentDate <= now) {
-        if (checkupConfirmation) {
-          checkupConfirmation.textContent = "❗ Please choose a future appointment time.";
-          checkupConfirmation.className = "alert alert-danger mt-3";
-          checkupConfirmation.classList.remove('d-none');
-        }
-        return;
-      }
-
-      // All good – show confirmation
-      if (checkupConfirmation) {
-        checkupConfirmation.innerHTML = `
-          ✅ <strong>Appointment booked!</strong><br>
-          Pet: ${petType}<br>
-          ${symptoms ? `Symptoms: ${symptoms}<br>` : ''}
-          Appointment: ${appointmentDate.toLocaleString()}
-        `;
-        checkupConfirmation.className = "alert alert-success mt-3";
-        checkupConfirmation.classList.remove('d-none');
-      }
-
-      checkupForm.reset();
-    });
-  }
-
   // --- Vaccine Form Logic ---
   const petTypeSelect = document.getElementById('vaccinePet');
   const petAgeInput = document.getElementById('petAge');
@@ -156,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const recommendedList = document.getElementById('recommendedVaccines');
   const vaccineOptionsWrapper = document.getElementById('vaccineOptionsWrapper');
   const vaccineOptions = document.getElementById('vaccineOptions');
-  const appointmentInput = document.getElementById('appointment-vaccine');
   const confirmation = document.getElementById('confirmationMessage');
   const vaccineForm = document.getElementById('form-vaccine');
 
@@ -210,69 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (petAgeInput) petAgeInput.addEventListener('input', updateVaccineList);
   if (ageUnitSelect) ageUnitSelect.addEventListener('change', updateVaccineList);
 
-  if (vaccineForm) {
-    vaccineForm.addEventListener('submit', e => {
-      e.preventDefault();
-      if (confirmation) confirmation.classList.add('d-none');
-
-      const selectedPet = petTypeSelect ? petTypeSelect.value : "";
-      const age = petAgeInput ? parseFloat(petAgeInput.value) : NaN;
-      const ageUnit = ageUnitSelect ? ageUnitSelect.value : "months";
-      const selectedTime = appointmentInput ? new Date(appointmentInput.value) : null;
-      const now = new Date();
-
-      const selectedVaccines = Array.from(
-        document.querySelectorAll('input[name="vaccines"]:checked')
-      ).map(cb => cb.value);
-
-      // Validation
-      if (!selectedPet || isNaN(age)) {
-        if (confirmation) {
-          confirmation.textContent = "❗ Please fill out pet type and age.";
-          confirmation.className = "alert alert-danger mt-3";
-          confirmation.classList.remove('d-none');
-        }
-        return;
-      }
-
-      if (selectedVaccines.length === 0) {
-        if (confirmation) {
-          confirmation.textContent = "❗ Please select at least one vaccine.";
-          confirmation.className = "alert alert-warning mt-3";
-          confirmation.classList.remove('d-none');
-        }
-        return;
-      }
-
-      if (!appointmentInput || !appointmentInput.value || !selectedTime || selectedTime <= now) {
-        if (confirmation) {
-          confirmation.textContent = "❗ Please choose a future appointment time.";
-          confirmation.className = "alert alert-danger mt-3";
-          confirmation.classList.remove('d-none');
-        }
-        return;
-      }
-
-      // All good – show confirmation
-      if (confirmation) {
-        confirmation.innerHTML = `
-          ✅ <strong>Appointment booked!</strong><br>
-          Pet: ${selectedPet}<br>
-          Age: ${age} ${ageUnit}<br>
-          Vaccines: ${selectedVaccines.join(', ')}<br>
-          Appointment: ${selectedTime.toLocaleString()}
-        `;
-        confirmation.className = "alert alert-success mt-3";
-        confirmation.classList.remove('d-none');
-      }
-
-      // Reset form
-      vaccineForm.reset();
-      if (recommendedList) recommendedList.innerHTML = '<li class="list-group-item">Select pet type and age to see recommendations.</li>';
-      if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.add('d-none');
-    });
-  }
-
   // --- Flatpickr for all services ---
   if (window.flatpickr) {
     if (document.getElementById('appointment-vaccine')) {
@@ -301,53 +123,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- SIGN IN MODAL LOGIC ---
-  const signInForm = document.getElementById('form-signin');
-  const signInEmail = document.getElementById('signinEmail');
-  const signInPassword = document.getElementById('signinPassword');
-  const signInMessage = document.getElementById('signinMessage');
-  const signInModalEl = document.getElementById('signInModal');
-  // Micromodal is used for modal logic. No Bootstrap modal logic here.
-
-  if (signInForm) {
-    signInForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (signInMessage) signInMessage.classList.add('d-none');
-      const email = signInEmail.value.trim();
-      const password = signInPassword.value;
-
-      // Simple validation
-      if (!email || !validateEmail(email)) {
-        showSignInMessage('Please enter a valid email address.', 'danger');
-        return;
-      }
-      if (!password) {
-        showSignInMessage('Please enter your password.', 'danger');
-        return;
-      }
-
-      // Use API for authentication
-      if (typeof authenticateUser === 'function') {
-        authenticateUser(e);
+  // --- Booking Auth State ---
+  function updateBookingFormsAuthState() {
+    document.querySelectorAll('.book-form').forEach(form => {
+      const authMsg = form.querySelector('.bookingAuthMessage');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (!authMsg || !submitBtn) return;
+      if (!isUserAuthenticated()) {
+        authMsg.classList.remove('d-none');
+        submitBtn.disabled = true;
+      } else {
+        authMsg.classList.add('d-none');
+        submitBtn.disabled = false;
       }
     });
   }
-
-  function showSignInMessage(msg, type) {
-    if (signInMessage) {
-      signInMessage.textContent = msg;
-      signInMessage.className = `alert alert-${type} mt-3`;
-      signInMessage.classList.remove('d-none');
-    }
-  }
-
-  function validateEmail(email) {
-    // Simple email regex
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  // --- Booking Auth State ---
-  // The following functions are now obsolete due to API-based authentication and can be removed or refactored in the next step.
+  window.updateBookingFormsAuthState = updateBookingFormsAuthState;
+  updateBookingFormsAuthState();
 
   // --- Sign In Modal from Booking Message ---
   document.querySelectorAll('.openSignIn').forEach(link => {
@@ -359,4 +151,155 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Auth State Helper ---
+  function isUserAuthenticated() {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  }
+
+  // --- Dashboard: View My Appointments ---
+  function showDashboard() {
+    let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+    let results = appointments.length
+      ? appointments.map(a => {
+          if (a.type === 'Vaccine') {
+            return `<div><strong>Vaccine</strong> for ${a.petType} (${a.petAge})<br>Vaccines: ${a.vaccines && a.vaccines.length ? a.vaccines.join(', ') : 'None'}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+          } else if (a.type === 'Grooming') {
+            return `<div><strong>Grooming</strong> for ${a.petType}<br>Service: ${a.service}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+          } else if (a.type === 'Checkup') {
+            return `<div><strong>Checkup</strong> for ${a.petType}<br>Symptoms: ${a.symptoms || 'None'}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+          } else {
+            return `<div>Unknown appointment type (ID: ${a.id})</div><hr>`;
+          }
+        }).join('')
+      : '<div>No appointments booked yet.</div>';
+    document.getElementById('resultsModalTitle').innerText = 'Your Appointments';
+    document.getElementById('results-content').innerHTML = results;
+    if (window.MicroModal) MicroModal.show('results-modal');
+  }
+
+  // Attach event listener to the dashboard button
+  const viewAppointmentsBtn = document.getElementById('viewAppointmentsBtn');
+  if (viewAppointmentsBtn) {
+    viewAppointmentsBtn.addEventListener('click', showDashboard);
+  }
+
+  // --- Booking Form Submission Logic ---
+  function generateId() {
+    return 'A' + Math.random().toString(36).substr(2, 9);
+  }
+
+  // Only use the modal for dashboard viewing, not for booking confirmations
+
+  // Vaccine Booking
+  if (vaccineForm) {
+    vaccineForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!isUserAuthenticated()) return;
+      const petType = petTypeSelect.value;
+      const petAge = petAgeInput.value;
+      const ageUnit = ageUnitSelect.value;
+      const vaccines = Array.from(vaccineOptions.querySelectorAll('input[name="vaccines"]:checked')).map(cb => cb.value);
+      const appointmentDate = document.getElementById('appointment-vaccine').value;
+      const appointment = {
+        id: generateId(),
+        type: 'Vaccine',
+        petType,
+        petAge: petAge + ' ' + ageUnit,
+        vaccines,
+        date: appointmentDate
+      };
+      let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+      appointments.push(appointment);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      // Show confirmation in the form
+      if (confirmation) {
+        confirmation.className = 'alert alert-success mt-3';
+        confirmation.innerHTML =
+          `✅ Vaccine appointment booked for a <strong>${petType}</strong> (${petAge} ${ageUnit})<br>` +
+          `Vaccines: <strong>${vaccines.join(', ') || 'None selected'}</strong><br>` +
+          `Date: <strong>${appointmentDate}</strong><br>` +
+          `Appointment ID: <strong>${appointment.id}</strong>`;
+        confirmation.classList.remove('d-none');
+        setTimeout(() => {
+          confirmation.classList.add('d-none');
+        }, 3000);
+      }
+      e.target.reset();
+      updateVaccineList();
+    });
+  }
+
+  // Grooming Booking
+  const groomingForm = document.getElementById('form-grooming');
+  if (groomingForm) {
+    groomingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!isUserAuthenticated()) return;
+      const petType = document.getElementById('groomPetType').value;
+      const service = document.getElementById('groomService').value;
+      const appointmentDate = document.getElementById('appointment-grooming').value;
+      const appointment = {
+        id: generateId(),
+        type: 'Grooming',
+        petType,
+        service,
+        date: appointmentDate
+      };
+      let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+      appointments.push(appointment);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      // Show confirmation in the form
+      const groomingConfirmation = document.getElementById('groomingConfirmation');
+      if (groomingConfirmation) {
+        groomingConfirmation.className = 'alert alert-success mt-3';
+        groomingConfirmation.innerHTML =
+          `✅ Grooming appointment booked for a <strong>${petType}</strong><br>` +
+          `Service: <strong>${service}</strong><br>` +
+          `Date: <strong>${appointmentDate}</strong><br>` +
+          `Appointment ID: <strong>${appointment.id}</strong>`;
+        groomingConfirmation.classList.remove('d-none');
+        setTimeout(() => {
+          groomingConfirmation.classList.add('d-none');
+        }, 3000);
+      }
+      e.target.reset();
+    });
+  }
+
+  // Checkup Booking
+  const checkupForm = document.getElementById('form-checkup');
+  if (checkupForm) {
+    checkupForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!isUserAuthenticated()) return;
+      const petType = document.getElementById('checkupPet').value;
+      const symptoms = document.getElementById('symptoms').value;
+      const appointmentDate = document.getElementById('appointment-checkup').value;
+      const appointment = {
+        id: generateId(),
+        type: 'Checkup',
+        petType,
+        symptoms,
+        date: appointmentDate
+      };
+      let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+      appointments.push(appointment);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      // Show confirmation in the form
+      const checkupConfirmation = document.getElementById('checkupConfirmation');
+      if (checkupConfirmation) {
+        checkupConfirmation.className = 'alert alert-success mt-3';
+        checkupConfirmation.innerHTML =
+          `✅ Checkup appointment booked for a <strong>${petType}</strong><br>` +
+          `Symptoms: <strong>${symptoms || 'None'}</strong><br>` +
+          `Date: <strong>${appointmentDate}</strong><br>` +
+          `Appointment ID: <strong>${appointment.id}</strong>`;
+        checkupConfirmation.classList.remove('d-none');
+        setTimeout(() => {
+          checkupConfirmation.classList.add('d-none');
+        }, 3000);
+      }
+      e.target.reset();
+    });
+  }
 });
