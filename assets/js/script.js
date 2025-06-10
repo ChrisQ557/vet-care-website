@@ -182,6 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (viewAppointmentsBtn) {
     viewAppointmentsBtn.addEventListener('click', showDashboard);
   }
+  const viewAppointmentsBtnMobile = document.getElementById('viewAppointmentsBtnMobile');
+  if (viewAppointmentsBtnMobile) {
+    viewAppointmentsBtnMobile.addEventListener('click', showDashboard);
+  }
 
   // --- Booking Form Submission Logic ---
   function generateId() {
