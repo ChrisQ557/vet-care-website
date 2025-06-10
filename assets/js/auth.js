@@ -69,7 +69,7 @@ function handleSignInSubmit(e) {
  * Handles register form submission.
  * @param {Event} e
  */
-function handleRegisterSubmit(e) {
+async function handleRegisterSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -79,34 +79,48 @@ function handleRegisterSubmit(e) {
 
   // Basic validation (expand as needed)
   if (name && email && petType && password) {
-    // Simulate registration logic (replace with API call later)
-    // Optionally, store user info in localStorage for demo purposes
-    // localStorage.setItem('user', JSON.stringify({ name, email, petType }));
-
-    // Optionally, auto-sign-in after registration
-    localStorage.setItem('isAuthenticated', 'true');
-
-    // Show success message
-    messageDiv.classList.remove('d-none', 'alert-danger');
-    messageDiv.classList.add('alert', 'alert-success');
-    messageDiv.innerHTML = `
-      Registration successful! You can now <a href="#book" class="alert-link">book an appointment</a> using the form below.
-    `;
-
-    // Reset form
-    e.target.reset();
-
-    // Update auth UI
-    updateAuthUI(true);
-
-    // Optionally update booking forms or UI
-    if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
-
-    // Hide message after a delay (optional)
-    setTimeout(() => {
-      messageDiv.classList.add('d-none');
-      messageDiv.textContent = "";
-    }, 4000);
+    // Use API for registration
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('petType', petType);
+      formData.append('password', password);
+      // Replace with your actual API endpoint for registration
+      const response = await fetch('https://chrisq557.github.io/vet-care-website/auth/register', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      if (response.ok) {
+        // Set registered state
+        localStorage.setItem('isRegistered', 'true');
+        // Show success message
+        messageDiv.classList.remove('d-none', 'alert-danger');
+        messageDiv.classList.add('alert', 'alert-success');
+        messageDiv.innerHTML = `
+          Registration successful! You can now <a href="#book" class="alert-link">book an appointment</a> using the form below.
+        `;
+        // Reset form
+        e.target.reset();
+        // Optionally update booking forms or UI
+        if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
+        // Hide message after a delay (optional)
+        setTimeout(() => {
+          messageDiv.classList.add('d-none');
+          messageDiv.textContent = "";
+        }, 4000);
+      } else {
+        // Show error message from API
+        messageDiv.classList.remove('d-none', 'alert-success');
+        messageDiv.classList.add('alert', 'alert-danger');
+        messageDiv.textContent = data.error || "Registration failed. Please try again.";
+      }
+    } catch (err) {
+      messageDiv.classList.remove('d-none', 'alert-success');
+      messageDiv.classList.add('alert', 'alert-danger');
+      messageDiv.textContent = "Registration failed. Please try again.";
+    }
   } else {
     // Show error message
     messageDiv.classList.remove('d-none', 'alert-success');
@@ -161,7 +175,21 @@ function attachAuthButtonListeners() {
       if (btn.textContent === "Sign Out") {
         signOutUser();
       } else {
-        MicroModal.show('signInModal');
+        // Only allow sign in if registered
+        if (localStorage.getItem('isRegistered') === 'true') {
+          MicroModal.show('signInModal');
+        } else {
+          // Show message in registration form
+          const messageDiv = document.getElementById('registerMessage');
+          if (messageDiv) {
+            messageDiv.classList.remove('d-none', 'alert-success');
+            messageDiv.classList.add('alert', 'alert-danger');
+            messageDiv.textContent = 'Please register before signing in.';
+            // Optionally scroll to registration form
+            const regForm = document.getElementById('registerForm');
+            if (regForm) regForm.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       }
     });
   });

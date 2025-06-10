@@ -1,8 +1,23 @@
 const API_KEY = "IItgcNvdHik5TC5Nn--lJ95k-CE";
 const API_URL = "https://chrisq557.github.io/vet-care-website/"; 
 
-document.getElementById("book-appointment").addEventListener("click", e => bookAppointment(e));
-document.getElementById("login").addEventListener("click", e => authenticateUser(e));
+// Attach booking form event listeners
+['form-vaccine', 'form-grooming', 'form-checkup'].forEach(formId => {
+  const form = document.getElementById(formId);
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      bookAppointment(e, formId);
+    });
+  }
+});
+
+// Attach sign-in form event listener
+const signInForm = document.getElementById('form-signin');
+if (signInForm) {
+  signInForm.addEventListener('submit', function(e) {
+    authenticateUser(e);
+  });
+}
 
 
 function processOptions(form) {
@@ -18,9 +33,11 @@ function processOptions(form) {
 }
 
 // Book an appointment (POST)
-async function bookAppointment(e) {
+async function bookAppointment(e, formId) {
     e.preventDefault();
-    const form = processOptions(new FormData(document.getElementById("appointmentForm")));
+    const formElem = document.getElementById(formId);
+    if (!formElem) return;
+    const form = processOptions(new FormData(formElem));
     const response = await fetch(`${API_URL}/appointments`, {
         method: "POST",
         headers: {
@@ -40,7 +57,9 @@ async function bookAppointment(e) {
 // Authenticate user (POST)
 async function authenticateUser(e) {
     e.preventDefault();
-    const form = new FormData(document.getElementById("loginForm"));
+    const formElem = document.getElementById('form-signin');
+    if (!formElem) return;
+    const form = new FormData(formElem);
     const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {

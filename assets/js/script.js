@@ -326,18 +326,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // For demo: accept any email/password (replace with real backend check)
-      showSignInMessage('✅ Sign in successful!', 'success');
-      // Set authentication state
-      localStorage.setItem('isAuthenticated', 'true');
-      // Update booking forms' auth state
-      if (typeof updateBookingFormsAuthState === 'function') {
-        updateBookingFormsAuthState();
+      // Use API for authentication
+      if (typeof authenticateUser === 'function') {
+        authenticateUser(e);
       }
-      // Hide modal and reset form (Micromodal)
-      if (window.MicroModal) MicroModal.close('signInModal');
-      signInForm.reset();
-      if (signInMessage) signInMessage.classList.add('d-none');
     });
   }
 
@@ -355,68 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Booking Auth State ---
-  function updateBookingFormsAuthState() {
-    document.querySelectorAll('.book-form').forEach(form => {
-      const authMsg = form.querySelector('.bookingAuthMessage');
-      const submitBtn = form.querySelector('button[type="submit"]');
-      if (!authMsg || !submitBtn) return;
-
-      if (!isUserAuthenticated()) {
-        authMsg.classList.remove('d-none');
-        submitBtn.disabled = true;
-      } else {
-        authMsg.classList.add('d-none');
-        submitBtn.disabled = false;
-      }
-    });
-    updateAuthButtons();
-  }
-  window.updateBookingFormsAuthState = updateBookingFormsAuthState;
-  updateBookingFormsAuthState();
-
-  // --- Auth Button Logic ---
-  function updateAuthButtons() {
-    document.querySelectorAll('.authButton').forEach(btn => {
-      if (isUserAuthenticated()) {
-        btn.textContent = 'Sign Out';
-        btn.classList.remove('btn-outline-secondary');
-        btn.classList.add('btn-danger');
-        btn.removeAttribute('data-bs-toggle');
-        btn.removeAttribute('data-bs-target');
-        btn.onclick = function (e) {
-          e.preventDefault();
-          signOutUser();
-        };
-      } else {
-        btn.textContent = 'Sign In';
-        btn.classList.remove('btn-danger');
-        btn.classList.add('btn-outline-secondary');
-        // btn.setAttribute('data-bs-toggle', 'modal'); // Removed for Micromodal compatibility
-        // btn.setAttribute('data-bs-target', '#signInModal'); // Removed for Micromodal compatibility
-        btn.onclick = function (e) {
-          if (btn.textContent.trim() === 'Sign In') {
-            e.preventDefault();
-            if (window.MicroModal) MicroModal.show('signInModal');
-          }
-        };
-      }
-    });
-  }
-
-  // --- Sign Out Logic ---
-  function signOutUser() {
-    // Remove authentication state
-    localStorage.removeItem('isAuthenticated');
-    // Hide modal if open
-    if (window.MicroModal) MicroModal.close('signInModal');
-    // Update UI
-    updateBookingFormsAuthState();
-    // Optionally, show a message or reload
-    window.dispatchEvent(new Event('userSignedOut'));
-  }
-
-  // Listen for custom sign out event
-  window.addEventListener('userSignedOut', updateBookingFormsAuthState);
+  // The following functions are now obsolete due to API-based authentication and can be removed or refactored in the next step.
 
   // --- Sign In Modal from Booking Message ---
   document.querySelectorAll('.openSignIn').forEach(link => {
