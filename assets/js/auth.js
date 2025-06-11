@@ -60,7 +60,13 @@ async function handleSignInSubmit(e) {
       } else {
         messageDiv.classList.remove('d-none', 'alert-success');
         messageDiv.classList.add('alert-danger');
-        messageDiv.textContent = data.error || "Login failed. Please try again.";
+        if (data.error && data.error.toLowerCase().includes('user not found')) {
+          messageDiv.textContent = "No account found with this email. Please register.";
+        } else if (data.error && data.error.toLowerCase().includes('password')) {
+          messageDiv.textContent = "Incorrect password. Please try again or reset your password.";
+        } else {
+          messageDiv.textContent = data.error || "Login failed. Please try again.";
+        }
       }
     } catch (err) {
       messageDiv.classList.remove('d-none', 'alert-success');
@@ -86,7 +92,7 @@ async function handleRegisterSubmit(e) {
   const password = document.getElementById('password').value.trim();
   const messageDiv = document.getElementById('registerMessage');
 
-  // Basic validation (expand as needed)
+  // Basic validation
   if (name && email && petType && password) {
     // Use Reqres API for registration
     try {
@@ -107,7 +113,7 @@ async function handleRegisterSubmit(e) {
         messageDiv.classList.remove('d-none', 'alert-danger');
         messageDiv.classList.add('alert', 'alert-success');
         messageDiv.innerHTML = `
-          Registration successful! You can now <a href="#book" class="alert-link">book an appointment</a> using the form below.
+          Registration successful! You can now <a href=\"#book\" class=\"alert-link\">book an appointment</a> using the form below.
         `;
         // Reset form
         e.target.reset();
@@ -122,7 +128,11 @@ async function handleRegisterSubmit(e) {
         // Show error message from API
         messageDiv.classList.remove('d-none', 'alert-success');
         messageDiv.classList.add('alert', 'alert-danger');
-        messageDiv.textContent = data.error || "Registration failed. Please try again.";
+        if (data.error && data.error.toLowerCase().includes('already')) {
+          messageDiv.textContent = "Account already exists. Please sign in.";
+        } else {
+          messageDiv.textContent = data.error || "Registration failed. Please try again.";
+        }
       }
     } catch (err) {
       messageDiv.classList.remove('d-none', 'alert-success');
@@ -166,11 +176,8 @@ function updateAuthUI(isSignedIn) {
     btn.textContent = isSignedIn ? "Sign Out" : "Sign In";
     btn.classList.toggle('btn-outline-secondary', !isSignedIn);
     btn.classList.toggle('btn-danger', isSignedIn);
-    // Remove previous click listeners to avoid stacking
-    btn.replaceWith(btn.cloneNode(true));
+    // Do not replace the node; just update text and classes to preserve event listeners
   });
-  // Re-attach event listeners after replacing nodes
-  attachAuthButtonListeners();
 }
 
 /**
@@ -180,24 +187,10 @@ function attachAuthButtonListeners() {
   document.querySelectorAll('.authButton').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      if (btn.textContent === "Sign Out") {
-        signOutUser();
-      } else {
-        // Only allow sign in if registered
-        if (localStorage.getItem('isRegistered') === 'true') {
-          MicroModal.show('signInModal');
-        } else {
-          // Show message in registration form
-          const messageDiv = document.getElementById('registerMessage');
-          if (messageDiv) {
-            messageDiv.classList.remove('d-none', 'alert-success');
-            messageDiv.classList.add('alert', 'alert-danger');
-            messageDiv.textContent = 'Please register before signing in.';
-            // Optionally scroll to registration form
-            const regForm = document.getElementById('registerForm');
-            if (regForm) regForm.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
+      if (btn.textContent.trim() === "Sign In" && window.MicroModal) {
+        MicroModal.show('signInModal');
+      } else if (btn.textContent.trim() === "Sign Out") {
+        if (typeof signOutUser === 'function') signOutUser();
       }
     });
   });

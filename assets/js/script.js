@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Hide all forms
       Object.values(forms).forEach(form => {
         if (form) form.classList.add('d-none');
-      });
+      // Removed duplicate .authButton event handler (handled in auth.js)
+});
       // Show the selected form
       if (forms[service]) {
         forms[service].classList.remove('d-none');
