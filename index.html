@@ -19,7 +19,7 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="ha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 
   <!-- Flatpickr CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -54,7 +54,8 @@
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
           <li><button class="btn btn btn-outline-secondary authButton">Sign In</button></li>
-          <li><button class="btn btn btn-outline-secondary w-100 mt-2" id="viewAppointmentsBtnMobile" type="button">View My Appointments</button></li>
+          <li><button class="btn btn btn-outline-secondary w-100 mt-2" id="viewAppointmentsBtnMobile" type="button">View
+              My Appointments</button></li>
         </ul>
 
       </div>
@@ -71,7 +72,8 @@
           <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
           <li><button class="btn btn-outline-secondary authButton">Sign
               In</button></li>
-          <li><button class="btn btn-outline-secondary ms-2" id="viewAppointmentsBtn" type="button">View My Appointments</button></li>
+          <li><button class="btn btn-outline-secondary ms-2" id="viewAppointmentsBtn" type="button">View My
+              Appointments</button></li>
         </ul>
       </div>
     </div>
@@ -172,8 +174,7 @@
       </section>
 
       <!-- Dog Care Section -->
-      <!-- role attribute in sections , https://stackoverflow.com/questions/10403138/what-is-the-purpose-of-the-role-attribute-in-html -->
-      <section id="dogCare" class="container  my-5 dog-care-section" role="region" aria-label="Dog Care Section">
+      <section id="dogCare" class="container  my-5 dog-care-section" aria-label="Dog Care Section">
         <h2 class="text-center mb-5 text-dark">Dog Care</h2>
         <div class="row g-4 align-items-start">
           <div class="col-md-6">
@@ -283,7 +284,7 @@
         </div>
       </section>
       <!-- Cat Care Section -->
-      <section id="catCare" class="container my-5 cat-care-section" role="region" aria-label="Cat Care Section">
+      <section id="catCare" class="container my-5 cat-care-section" aria-label="Cat Care Section">
         <h2 class="text-center mb-5 text-dark">Cat Care</h2>
         <div class="row g-4 align-items-start">
           <div class="col-md-6 order-md-2">
@@ -394,12 +395,13 @@
                 <h2 class="text-center mb-5 text-dark">Join our Vet Community</h2>
                 <div class="mb-3">
                   <label for="registerName" class="form-label">Full Name</label>
-                  <input type="text" id="registerName" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
-                    title="Please enter your first and last name">
+                  <input type="text" id="registerName" name="name" class="form-control" required
+                    pattern="^\s*\S+\s+\S+.*$" title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
                   <label for="registerNickname" class="form-label">Nickname</label>
-                  <input type="text" id="registerNickname" name="nickname" class="form-control" required pattern="^\w{3,}$" title="Please enter a nickname (at least 3 characters)">
+                  <input type="text" id="registerNickname" name="nickname" class="form-control" required
+                    pattern="^\w{3,}$" title="Please enter a nickname (at least 3 characters)">
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
@@ -441,8 +443,8 @@
                 <h2 class="text-center mb-5 text-dark">Contact Us</h2>
                 <div class="mb-3">
                   <label for="contactName" class="form-label">Full Name</label>
-                  <input type="text" id="contactName" name="name" class="form-control" required pattern="^\s*\S+\s+\S+.*$"
-                    title="Please enter your first and last name">
+                  <input type="text" id="contactName" name="name" class="form-control" required
+                    pattern="^\s*\S+\s+\S+.*$" title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
                   <label for="contactEmail" class="form-label">Email</label>
@@ -553,14 +555,12 @@
                   </select>
                 </div>
 
-                <div class="mb-5 mt-3">
-                  <label for="groomService" class="form-label">Service</label>
-                  <select id="groomService" class="form-select" required>
-                    <option value="bath">Bath</option>
-                    <option value="nail">Nail Trim</option>
-                    <option value="ear">Ear Cleaning</option>
-                  </select>
-                </div>
+                <select id="groomService" class="form-select" required>
+                  <option value="">Select Service</option>
+                  <option value="bath">Bath</option>
+                  <option value="nail">Nail Trim</option>
+                  <option value="ear">Ear Cleaning</option>
+                </select>
 
                 <div class="mb-3">
                   <label for="appointment-grooming" class="form-label fw-semibold">Choose Appointment Date &
@@ -694,7 +694,8 @@
           </div>
           <div class="mb-3">
             <label for="signinNickname" class="form-label">Nickname</label>
-            <input type="text" class="form-control" id="signinNickname" required pattern="^\w{3,}$" title="Please enter your nickname (at least 3 characters)">
+            <input type="text" class="form-control" id="signinNickname" required pattern="^\w{3,}$"
+              title="Please enter your nickname (at least 3 characters)">
           </div>
           <div class="mb-3">
             <label for="signinPassword" class="form-label">Password</label>
@@ -748,8 +749,8 @@
           <h2 class="modal__title" id="resultsModalTitle">Dashboard</h2>
           <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
         </header>
-        <main class="modal__content" id="results-content"></main>
-       
+        <section class="modal__content" id="results-content" role="main"></section>
+
       </div>
     </div>
   </div>
