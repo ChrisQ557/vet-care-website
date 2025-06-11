@@ -165,17 +165,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Dashboard: View My Appointments ---
   function showDashboard() {
     if (!isUserAuthenticated()) return;
+    const nickname = localStorage.getItem('nickname');
     let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+    appointments = appointments.filter(a => a.nickname === nickname);
     let results = appointments.length
       ? appointments.map(a => {
+          let cancelBtn = `<button class=\"btn btn-danger btn-sm cancel-appointment\" data-id=\"${a.id}\">Cancel</button>`;
           if (a.type === 'Vaccine') {
-            return `<div><strong>Vaccine</strong> for ${a.petType} (${a.petAge})<br>Vaccines: ${a.vaccines && a.vaccines.length ? a.vaccines.join(', ') : 'None'}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+            return `<div data-appointment-id=\"${a.id}\"><strong>Vaccine</strong> for ${a.petType} (${a.petAge})<br>Vaccines: ${a.vaccines && a.vaccines.length ? a.vaccines.join(', ') : 'None'}<br>Date: ${a.date}<br>ID: ${a.id}<br>${cancelBtn}</div><hr>`;
           } else if (a.type === 'Grooming') {
-            return `<div><strong>Grooming</strong> for ${a.petType}<br>Service: ${a.service}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+            return `<div data-appointment-id=\"${a.id}\"><strong>Grooming</strong> for ${a.petType}<br>Service: ${a.service}<br>Date: ${a.date}<br>ID: ${a.id}<br>${cancelBtn}</div><hr>`;
           } else if (a.type === 'Checkup') {
-            return `<div><strong>Checkup</strong> for ${a.petType}<br>Symptoms: ${a.symptoms || 'None'}<br>Date: ${a.date}<br>ID: ${a.id}</div><hr>`;
+            return `<div data-appointment-id=\"${a.id}\"><strong>Checkup</strong> for ${a.petType}<br>Symptoms: ${a.symptoms || 'None'}<br>Date: ${a.date}<br>ID: ${a.id}<br>${cancelBtn}</div><hr>`;
           } else {
-            return `<div>Unknown appointment type (ID: ${a.id})</div><hr>`;
+            return `<div data-appointment-id=\"${a.id}\">Unknown appointment type (ID: ${a.id})<br>${cancelBtn}</div><hr>`;
           }
         }).join('')
       : '<div>No appointments booked yet.</div>';
@@ -183,6 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('results-content').innerHTML = results;
     if (window.MicroModal) MicroModal.show('results-modal');
   }
+
+  // Event delegation for cancel buttons in dashboard
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('cancel-appointment')) {
+      const id = e.target.getAttribute('data-id');
+      let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
+      appointments = appointments.filter(a => a.id !== id);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      showDashboard(); // Refresh the modal
+    }
+  });
 
   // Attach event listener to the dashboard button
   const viewAppointmentsBtn = document.getElementById('viewAppointmentsBtn');
@@ -217,7 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
         petType,
         petAge: petAge + ' ' + ageUnit,
         vaccines,
-        date: appointmentDate
+        date: appointmentDate,
+        nickname: localStorage.getItem('nickname') || ''
       };
       let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
       appointments.push(appointment);
@@ -254,7 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
         type: 'Grooming',
         petType,
         service,
-        date: appointmentDate
+        date: appointmentDate,
+        userPassword: localStorage.getItem('userPassword') || ''
       };
       let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
       appointments.push(appointment);
@@ -291,7 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
         type: 'Checkup',
         petType,
         symptoms,
-        date: appointmentDate
+        date: appointmentDate,
+        userPassword: localStorage.getItem('userPassword') || ''
       };
       let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
       appointments.push(appointment);

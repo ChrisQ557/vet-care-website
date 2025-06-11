@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function handleSignInSubmit(e) {
   e.preventDefault();
   const email = document.getElementById('signinEmail').value.trim();
+  const nickname = document.getElementById('signinNickname').value.trim();
   const password = document.getElementById('signinPassword').value.trim();
   const messageDiv = document.getElementById('signinMessage');
 
@@ -48,6 +49,7 @@ async function handleSignInSubmit(e) {
         messageDiv.classList.add('alert-success');
         messageDiv.textContent = "Sign in successful!";
         localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('nickname', nickname);
         setTimeout(() => {
           if (document.getElementById('signInModal')) MicroModal.close('signInModal');
           e.target.reset();
@@ -144,6 +146,7 @@ async function handleRegisterSubmit(e) {
  */
 function signOutUser() {
   localStorage.removeItem('isAuthenticated');
+  localStorage.removeItem('nickname');
   updateAuthUI(false);
   // Close modal if open
   if (window.MicroModal && typeof MicroModal.close === 'function') {

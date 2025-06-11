@@ -406,6 +406,10 @@
                     title="Please enter your first and last name">
                 </div>
                 <div class="mb-3">
+                  <label for="registerNickname" class="form-label">Nickname</label>
+                  <input type="text" id="registerNickname" name="nickname" class="form-control" required pattern="^\w{3,}$" title="Please enter a nickname (at least 3 characters)">
+                </div>
+                <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
                   <input type="email" id="email" name="email" class="form-control" required>
                 </div>
@@ -695,6 +699,10 @@
           <div class="mb-3">
             <label for="signinEmail" class="form-label">Email address</label>
             <input type="email" class="form-control" id="signinEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="signinNickname" class="form-label">Nickname</label>
+            <input type="text" class="form-control" id="signinNickname" required pattern="^\w{3,}$" title="Please enter your nickname (at least 3 characters)">
           </div>
           <div class="mb-3">
             <label for="signinPassword" class="form-label">Password</label>
