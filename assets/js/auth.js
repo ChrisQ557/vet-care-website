@@ -2,7 +2,6 @@
 
 /**
  * Authentication logic for sign in/out, registration, and modal control using Micromodal.
- * Bootstrap modal handling has been removed.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,8 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (registerForm) {
     registerForm.addEventListener('submit', handleRegisterSubmit);
   }
-  // Attach auth button listeners (Sign In/Sign Out)
-  attachAuthButtonListeners();
+  // Attach global event delegation for auth buttons
+  document.addEventListener('click', authButtonHandler);
+  // Set initial UI state
+  updateAuthUI(isUserAuthenticated());
 });
 
 /**
@@ -94,38 +95,30 @@ async function handleRegisterSubmit(e) {
 
   // Basic validation
   if (name && email && petType && password) {
-    // Use Reqres API for registration
     try {
       const payload = { email, password };
       const response = await fetch('https://reqres.in/api/register', {
-      method: 'POST',
-      headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': 'reqres-free-v1'
-      },
-      body: JSON.stringify(payload)
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'reqres-free-v1'
+        },
+        body: JSON.stringify(payload)
       });
       const data = await response.json();
       if (response.ok) {
-        // Set registered state
         localStorage.setItem('isRegistered', 'true');
-        // Show success message
         messageDiv.classList.remove('d-none', 'alert-danger');
         messageDiv.classList.add('alert', 'alert-success');
-        messageDiv.innerHTML = `
-          Registration successful! You can now <a href=\"#book\" class=\"alert-link\">book an appointment</a> using the form below.
-        `;
-        // Reset form
+        messageDiv.innerHTML =
+          `Registration successful! You can now <a href=\"#book\" class=\"alert-link\">book an appointment</a> using the form below.`;
         e.target.reset();
-        // Optionally update booking forms or UI
         if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
-        // Hide message after a delay (optional)
         setTimeout(() => {
           messageDiv.classList.add('d-none');
           messageDiv.textContent = "";
         }, 4000);
       } else {
-        // Show error message from API
         messageDiv.classList.remove('d-none', 'alert-success');
         messageDiv.classList.add('alert', 'alert-danger');
         if (data.error && data.error.toLowerCase().includes('already')) {
@@ -140,7 +133,6 @@ async function handleRegisterSubmit(e) {
       messageDiv.textContent = "Registration failed. Please try again.";
     }
   } else {
-    // Show error message
     messageDiv.classList.remove('d-none', 'alert-success');
     messageDiv.classList.add('alert', 'alert-danger');
     messageDiv.textContent = "Please fill in all fields.";
@@ -151,19 +143,14 @@ async function handleRegisterSubmit(e) {
  * Handles sign out logic.
  */
 function signOutUser() {
-  // Clear auth state (implement as needed)
   localStorage.removeItem('isAuthenticated');
   updateAuthUI(false);
-  // Optionally close modal if open and Micromodal is initialized
-  const modal = document.getElementById('signInModal');
-  if (modal && modal.classList.contains('is-open') && window.MicroModal && typeof MicroModal.close === 'function') {
+  // Close modal if open
+  if (window.MicroModal && typeof MicroModal.close === 'function') {
     try {
       MicroModal.close('signInModal');
-    } catch (e) {
-      // Modal might not be open or Micromodal not initialized; ignore
-    }
+    } catch (e) {}
   }
-  // Optionally update booking forms or UI
   if (typeof updateBookingFormsAuthState === 'function') updateBookingFormsAuthState();
 }
 
@@ -176,24 +163,28 @@ function updateAuthUI(isSignedIn) {
     btn.textContent = isSignedIn ? "Sign Out" : "Sign In";
     btn.classList.toggle('btn-outline-secondary', !isSignedIn);
     btn.classList.toggle('btn-danger', isSignedIn);
-    // Do not replace the node; just update text and classes to preserve event listeners
   });
+  // Show/hide View Appointments buttons
+  const viewBtn = document.getElementById('viewAppointmentsBtn');
+  const viewBtnMobile = document.getElementById('viewAppointmentsBtnMobile');
+  if (viewBtn) viewBtn.style.display = isSignedIn ? '' : 'none';
+  if (viewBtnMobile) viewBtnMobile.style.display = isSignedIn ? '' : 'none';
 }
 
 /**
- * Attaches event listeners to all auth buttons.
+ * Handles all .authButton clicks via event delegation.
  */
-function attachAuthButtonListeners() {
-  document.querySelectorAll('.authButton').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (btn.textContent.trim() === "Sign In" && window.MicroModal) {
-        MicroModal.show('signInModal');
-      } else if (btn.textContent.trim() === "Sign Out") {
-        if (typeof signOutUser === 'function') signOutUser();
-      }
-    });
-  });
+function authButtonHandler(e) {
+  const btn = e.target.closest('.authButton');
+  if (!btn) return;
+  e.preventDefault();
+  if (btn.textContent.trim() === "Sign In") {
+    if (window.MicroModal && typeof MicroModal.show === 'function') {
+      MicroModal.show('signInModal');
+    }
+  } else if (btn.textContent.trim() === "Sign Out") {
+    signOutUser();
+  }
 }
 
 /**
@@ -204,6 +195,5 @@ function isUserAuthenticated() {
   return localStorage.getItem('isAuthenticated') === 'true';
 }
 
-// Optionally, expose signOutUser and isUserAuthenticated globally if needed elsewhere
 window.signOutUser = signOutUser;
 window.isUserAuthenticated = isUserAuthenticated;

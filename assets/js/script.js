@@ -147,7 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       if (window.MicroModal) {
-        MicroModal.show('signInModal');
+        if (!window.justSignedOut) {
+          console.log("MicroModal.show('signInModal') called from script.js .openSignIn click");
+          MicroModal.show('signInModal');
+        } else {
+          window.justSignedOut = false;
+        }
       }
     });
   });
@@ -159,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dashboard: View My Appointments ---
   function showDashboard() {
+    if (!isUserAuthenticated()) return;
     let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
     let results = appointments.length
       ? appointments.map(a => {
