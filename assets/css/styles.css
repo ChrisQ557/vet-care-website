@@ -25,12 +25,6 @@ body {
   background-color: var(--green-smoke);
 }
 
-/* Headings: override Bootstrap's default font for branding */
-h1, h2 {
-  font-family: var(--font-heading);
-  color: var(--potters-clay);
-}
-
 /* Navbar: custom colours and fonts */
 .navbar {
   background: var(--rangoon-green);
