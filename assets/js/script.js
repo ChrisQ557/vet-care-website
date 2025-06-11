@@ -82,10 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (vaccineOptions) {
       vaccineOptions.innerHTML = vaccines.map(v => `
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="vaccines" value="${v}" id="vaccine-${v}">
+          <input class="form-check-input vaccine-checkbox" type="checkbox" name="vaccines" value="${v}" id="vaccine-${v}">
           <label class="form-check-label" for="vaccine-${v}">${v}</label>
         </div>
       `).join('');
+      // Add event listeners to highlight selected options
+      vaccineOptions.querySelectorAll('.vaccine-checkbox').forEach(cb => {
+        cb.addEventListener('change', function() {
+          const parent = cb.closest('.form-check');
+          if (cb.checked) {
+            parent.classList.add('selected-vaccine');
+          } else {
+            parent.classList.remove('selected-vaccine');
+          }
+        });
+        // Set initial highlight if already checked
+        const parent = cb.closest('.form-check');
+        if (cb.checked) {
+          parent.classList.add('selected-vaccine');
+        } else {
+          parent.classList.remove('selected-vaccine');
+        }
+      });
     }
 
     if (vaccineOptionsWrapper) vaccineOptionsWrapper.classList.remove('d-none');
