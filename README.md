@@ -146,7 +146,7 @@ vet-care-website/
 
 1. **Clone or download the project:**
    ```sh
-   git clone https://github.com/your-username/vet-care-website
+   git clone https://github.com/ChrisQ557/vet-care-website
    ```
 2. Open `index.html` in your browser. No build step or dependencies needed — it's pure HTML/CSS/JS with Bootstrap CDN.
 
