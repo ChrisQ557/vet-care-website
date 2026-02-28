@@ -62,12 +62,18 @@ body {
   height: 80vh;
   object-fit: cover;
 }
+.h5-carousel-caption {
+  font-size: 1.25rem;
+}
 
 /* Cards: custom backgrounds for card variants and hover effect */
 .card-1 { background: var(--corduroy); }
 .card-2 { background: var(--zorba); }
 .card-3 { background: var(--go-ben); }
 .card-4 { background: var(--potters-clay); }
+.card-title {
+  font-size: 1.25rem;
+}
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -250,6 +256,7 @@ footer {
 .footer-heading {
   font-family: var(--font-heading);
   color: var(--harvest-gold);
+  font-size: 1.25rem;
 }
 .footer a {
   color: var(--green-smoke);
