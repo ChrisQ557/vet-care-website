@@ -26,6 +26,68 @@ The Vet Care Website is your digital companion for pet care. Users can:
 
 ---
 
+## 📖 User Stories
+
+### Visitors
+
+The main demographic for the site is pet owners looking for reliable veterinary care information, services, and appointment booking for their cats and dogs.
+
+1. As a visitor, I would like to see what the vet clinic offers so I can decide if it's right for my pet.
+
+2. As a visitor, I would like to browse dog-specific care information (vaccines, grooming, dental, nutrition, health monitoring) so I can understand how to keep my dog healthy.
+
+3. As a visitor, I would like to browse cat-specific care information (vaccines, grooming, dental, nutrition, wellness exams) so I can understand how to keep my cat healthy.
+
+4. As a visitor, I would like to easily navigate between sections so I can find the information I need quickly.
+
+5. As a visitor, I would like to view the clinic's services (vaccinations, grooming, nutrition, health checkups) so I can see what is available.
+
+6. As a visitor, I would like to send a message via a contact form so I can ask questions or provide feedback.
+
+7. As a visitor, I would like the site to be responsive so I can browse comfortably on my phone, tablet, or desktop.
+
+8. As a visitor, I would like to access the clinic's social media links so I can follow them on Facebook, Instagram, or Twitter.
+
+9. As a visitor, I would like to see a visually appealing carousel of images so I can get a feel for the clinic's environment and services.
+
+10. As a visitor, I would like to register an account so I can access booking features and manage my pet's appointments.
+
+### Registered Users / Pet Owners
+
+1. As a registered user, I would like to sign in to my account so I can access the booking system.
+
+2. As a registered user, I would like to book a vaccination appointment for my pet so I can keep their immunisations up to date.
+
+3. As a registered user, I would like to see recommended vaccines based on my pet's type and age so I can make informed decisions.
+
+4. As a registered user, I would like to book a grooming appointment (bath, nail trim, ear cleaning) so I can keep my pet clean and healthy.
+
+5. As a registered user, I would like to book a health checkup and optionally describe symptoms so the vet can prepare for the visit.
+
+6. As a registered user, I would like to select a preferred date and time for my appointment so it fits my schedule.
+
+7. As a registered user, I would like to view all my booked appointments in a dashboard so I can keep track of upcoming visits.
+
+8. As a registered user, I would like to cancel an appointment from the dashboard so I can manage my schedule if plans change.
+
+9. As a registered user, I would like to sign out of my account so my information stays secure on shared devices.
+
+10. As a registered user, I would like to receive a confirmation message after booking so I know my appointment was successfully created.
+
+### Admin / Clinic Staff
+
+1. As an admin, I would like to collect visitor names and emails through the contact form so I can respond to enquiries.
+
+2. As an admin, I would like to collect registration details (name, nickname, email, pet type, password) so I can manage user accounts.
+
+3. As an admin, I would like to collect booking details (pet type, service, date/time, vaccines selected, symptoms) so I can manage appointment reservations.
+
+4. As an admin, I would like the site to present the clinic professionally so it attracts new clients and builds trust.
+
+5. As an admin, I would like booking to be restricted to signed-in users so I can ensure only registered pet owners make appointments.
+
+---
+
 ## 🧱 Features
 
 - 🎨 Custom responsive design with Bootstrap 5
