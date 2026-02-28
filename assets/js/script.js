@@ -195,8 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nickname = localStorage.getItem('nickname');
     let appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
     appointments = appointments.filter(a => a.nickname === nickname);
-    let results = appointments.length
-      ? appointments.map(a => {
+    let results = appointments.length ? appointments.map(a => {
           let cancelBtn = `<button class=\"btn btn-danger btn-sm cancel-appointment\" data-id=\"${a.id}\">Cancel</button>`;
           if (a.type === 'Vaccine') {
             return `<div data-appointment-id=\"${a.id}\"><strong>Vaccine</strong> for ${a.petType} (${a.petAge})<br>Vaccines: ${a.vaccines && a.vaccines.length ? a.vaccines.join(', ') : 'None'}<br>Date: ${a.date}<br>ID: ${a.id}<br>${cancelBtn}</div><hr>`;
