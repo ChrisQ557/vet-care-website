@@ -107,9 +107,7 @@ All JavaScript files were validated using [JSHint](https://jshint.com/) with the
 
 Lighthouse was run via Chrome DevTools on the deployed site to audit Performance, Accessibility, Best Practices, and SEO.
 
-### Desktop
-
-![Lighthouse report — Desktop](docs/testing/lighthouse/lighthouse-desktop.png)
+![Lighthouse report](docs/testing/lighthouse/lighthouse-report.png)
 
 | Category | Score |
 |----------|-------|
@@ -118,18 +116,7 @@ Lighthouse was run via Chrome DevTools on the deployed site to audit Performance
 | Best Practices | — |
 | SEO | — |
 
-### Mobile
-
-![Lighthouse report — Mobile](docs/testing/lighthouse/lighthouse-mobile.png)
-
-| Category | Score |
-|----------|-------|
-| Performance | — |
-| Accessibility | — |
-| Best Practices | — |
-| SEO | — |
-
-> **How to test:** Open Chrome DevTools → Lighthouse tab → Generate report for both Mobile and Desktop.
+> **How to test:** Open Chrome DevTools → Lighthouse tab → Generate report.
 
 ---
 
@@ -155,8 +142,7 @@ Below is a checklist of all screenshots needed for this document. Place each scr
 - [x] `docs/testing/validation/js/jshint-api.png` — JSHint result for api.js
 
 ### Lighthouse Screenshots
-- [ ] `docs/testing/lighthouse/lighthouse-desktop.png` — Lighthouse desktop report
-- [ ] `docs/testing/lighthouse/lighthouse-mobile.png` — Lighthouse mobile report
+- [x] `docs/testing/lighthouse/lighthouse-report.png` — Lighthouse report
 
 ---
 
