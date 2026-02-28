@@ -156,6 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
       }
     });
+    // Show/hide View Appointments button(s) based on auth state
+    const viewAppointmentsBtn = document.getElementById('viewAppointmentsBtn');
+    const viewAppointmentsBtnMobile = document.getElementById('viewAppointmentsBtnMobile');
+    if (viewAppointmentsBtn) {
+      viewAppointmentsBtn.style.display = isUserAuthenticated() ? '' : 'none';
+    }
+    if (viewAppointmentsBtnMobile) {
+      viewAppointmentsBtnMobile.style.display = isUserAuthenticated() ? '' : 'none';
+    }
   }
   window.updateBookingFormsAuthState = updateBookingFormsAuthState;
   updateBookingFormsAuthState();
@@ -243,6 +252,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const ageUnit = ageUnitSelect.value;
       const vaccines = Array.from(vaccineOptions.querySelectorAll('input[name="vaccines"]:checked')).map(cb => cb.value);
       const appointmentDate = document.getElementById('appointment-vaccine').value;
+
+      // Validation
+      let errorMsg = '';
+      if (!appointmentDate) {
+        errorMsg = 'Please select a date and time for your appointment.';
+      } else if (!vaccines.length) {
+        errorMsg = 'Please select at least one vaccine.';
+      }
+      if (errorMsg) {
+        if (confirmation) {
+          confirmation.className = 'alert alert-danger mt-3';
+          confirmation.innerHTML = errorMsg;
+          confirmation.classList.remove('d-none');
+        }
+        return;
+      }
+
       const appointment = {
         id: generateId(),
         type: 'Vaccine',

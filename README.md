@@ -106,6 +106,12 @@ vet-care-website/
 
 ---
 
+## 🧪 Testing & Validation
+
+For full testing documentation including HTML/CSS/JS validation, Lighthouse audits, feature testing, responsiveness, browser compatibility, and accessibility — see the dedicated **[TESTING.md](TESTING.md)** file.
+
+---
+
 ## 🚦 Known Issues & Limitations
 
 - All users must use the same email to register/sign in (Reqres API limitation)
