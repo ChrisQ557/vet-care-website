@@ -170,7 +170,7 @@ vet-care-website/
 
 ## 🧪 Testing & Validation
 
-For full testing documentation including HTML/CSS/JS validation, Lighthouse audits, feature testing, responsiveness, browser compatibility, and accessibility — see the dedicated **[TESTING.md](TESTING.md)** file.
+For full testing documentation including HTML/CSS/JS validation, Lighthouse audits, manual feature testing, responsiveness, browser compatibility, and accessibility — see the dedicated **[TESTING.md](TESTING.md)** file.
 
 ---
 
