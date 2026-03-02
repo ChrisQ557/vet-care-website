@@ -152,7 +152,109 @@ vet-care-website/
 
 ---
 
-## 📝 Sign in Instructions
+## � Deployment
+
+### Local Setup
+
+#### Prerequisites
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- A code editor (optional, for modifications) such as VS Code
+- Git (optional, for cloning the repository)
+
+#### Steps to Set Up Locally
+
+1. **Clone the Repository:**
+   ```sh
+   git clone https://github.com/ChrisQ557/vet-care-website.git
+   cd vet-care-website
+   ```
+   Alternatively, download the project as a ZIP file and extract it.
+
+2. **Open the Project:**
+   - Navigate to the project folder
+   - Open `index.html` directly in your web browser, or
+   - Use a live server extension (VS Code Live Server recommended for development)
+
+3. **Install a Local Server (Optional but Recommended for Development):**
+   - If using VS Code, install the "Live Server" extension
+   - Right-click `index.html` and select "Open with Live Server"
+   - This enables auto-refresh during development and avoids potential CORS issues
+
+4. **Verify Installation:**
+   - The website should load with full functionality
+   - Navigation menus, forms, and modals should work correctly
+   - Sign in with the test email: `eve.holt@reqres.in`
+
+#### Local Development Notes
+- No build process or package installation required
+- All dependencies are loaded via CDN (Bootstrap 5, Google Fonts, MicroModal)
+- Edit files directly and refresh the browser to see changes
+- Use browser developer tools (F12) to debug JavaScript and CSS issues
+
+---
+
+### GitHub Deployment
+
+#### Repository Setup
+
+1. **Create Repository on GitHub:**
+   - Log in to GitHub and click "New Repository"
+   - Name the repository: `vet-care-website` (or your preferred name)
+   - Add a brief description
+   - Choose public visibility to enable GitHub Pages
+   - Initialize without a README (if cloning an existing project)
+
+2. **Push Local Code to GitHub:**
+   ```sh
+   git init
+   git add .
+   git commit -m "Initial commit: Vet Care Website"
+   git branch -M main
+   git remote add origin https://github.com/ChrisQ557/vet-care-website.git
+   git push -u origin main
+   ```
+
+#### Enable GitHub Pages
+
+1. **Navigate to Repository Settings:**
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages** (in the left sidebar)
+
+2. **Configure GitHub Pages:**
+   - Under "Build and deployment," set the source to **Deploy from a branch**
+   - Select the **main** branch and **/ (root)** folder
+   - Click "Save"
+
+3. **Access Your Deployed Site:**
+   - GitHub will display a live URL (e.g., `https://ChrisQ557.github.io/vet-care-website/`)
+   - The site is now live and accessible to everyone
+
+4. **Verify Deployment:**
+   - Wait 1-2 minutes for GitHub Pages to build and deploy
+   - Visit the provided URL to confirm the site is live
+   - Check that all images, styles, and functionality work correctly
+
+#### Updating Code on GitHub
+
+After making local changes:
+
+```sh
+git add .
+git commit -m "Describe your changes here"
+git push origin main
+```
+
+GitHub Pages will automatically rebuild and redeploy within 1-2 minutes.
+
+#### Important Deployment Notes
+- GitHub Pages has no backend support — all data is stored locally in the browser `localStorage`
+- Appointments are persisted per browser/device only
+- For a production app with persistent data, consider adding a backend (Node.js, Python, etc.) and database
+- CORS restrictions may apply if integrating external APIs; GitHub Pages serves over HTTPS
+
+---
+
+## �📝 Sign in Instructions
 
 - **Sign in using the email:** `eve.holt@reqres.in`
 - **A nickname is required** when signing in or registering. This is because the Reqres API does not check passwords, so appointments are stored locally and filtered by nickname for demo purposes.
