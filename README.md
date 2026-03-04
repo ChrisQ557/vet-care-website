@@ -8,6 +8,7 @@ Welcome to the Vet Care Website — a modern, responsive platform for pet owners
 ## 📑 Table of Contents
 
 - [Overview](#-overview)
+- [Screenshots](#-screenshots)
 - [Intended Users](#-intended-users)
 - [User Stories](#-user-stories)
 - [Features](#-features)
@@ -33,6 +34,19 @@ The Vet Care Website is your digital companion for pet care. Users can:
 - Track upcoming vaccinations and appointments
 - Receive reminders
 - Enjoy a fully responsive, mobile-friendly experience
+
+---
+
+## 📸 Screenshots
+
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.24.39.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.24.46.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.24.53.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.24.59.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.25.06.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.25.15.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.25.23.png)
+![Screenshot](assets/images/screenshots/Screenshot%202026-03-04%20at%2018.25.33.png)
 
 ---
 
