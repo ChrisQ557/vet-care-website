@@ -1,7 +1,27 @@
 # 🐾 Vet Care Website
 
 Welcome to the Vet Care Website — a modern, responsive platform for pet owners to manage their pets’ health, book appointments, and access reliable care information. This project is designed for cat and dog owners who want to keep their pets healthy and happy.
+**🔗 [Live Site](https://ChrisQ557.github.io/vet-care-website/)**
 
+---
+
+## 📑 Table of Contents
+
+- [Overview](#-overview)
+- [Intended Users](#-intended-users)
+- [User Stories](#-user-stories)
+- [Features](#-features)
+- [Folder Structure](#-folder-structure)
+- [Pages Breakdown](#-pages-breakdown)
+- [Technologies Used](#-technologies-used)
+- [How to Use](#-how-to-use)
+- [Deployment](#-deployment)
+- [Sign in Instructions](#-sign-in-instructions)
+- [Customization](#-customization)
+- [Testing & Validation](#-testing--validation)
+- [Known Issues & Limitations](#-known-issues--limitations)
+- [Contact](#-contact)
+- [Acknowledgements](#-acknowledgements)
 ---
 
 ## 🌟 Overview
