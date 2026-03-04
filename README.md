@@ -3,6 +3,8 @@
 Welcome to the Vet Care Website — a modern, responsive platform for pet owners to manage their pets’ health, book appointments, and access reliable care information. This project is designed for cat and dog owners who want to keep their pets healthy and happy.
 **🔗 [Live Site](https://ChrisQ557.github.io/vet-care-website/)**
 
+> 📋 **Testing documentation** is maintained in a separate file. See [TESTING.md](TESTING.md) for full details on validation, Lighthouse audits, manual testing, and browser compatibility.
+
 ---
 
 ## 📑 Table of Contents
@@ -306,7 +308,20 @@ GitHub Pages will automatically rebuild and redeploy within 1-2 minutes.
 
 ## 🧪 Testing & Validation
 
-For full testing documentation including HTML/CSS/JS validation, Lighthouse audits, manual feature testing, responsiveness, browser compatibility, and accessibility — see the dedicated **[TESTING.md](TESTING.md)** file.
+All testing for this project is documented in the dedicated **[TESTING.md](TESTING.md)** file. Readers are strongly encouraged to review it for a full picture of quality assurance carried out on this project.
+
+The testing documentation covers:
+
+- ✅ **HTML Validation** — W3C Markup Validator results
+- ✅ **CSS Validation** — W3C CSS Validator results
+- ✅ **JavaScript Validation** — JSHint linting results
+- ✅ **Lighthouse Audits** — Performance, Accessibility, Best Practices, SEO scores
+- ✅ **Manual Feature Testing** — Step-by-step testing of all site features
+- ✅ **Responsiveness Testing** — Tested across multiple screen sizes and devices
+- ✅ **Browser Compatibility** — Tested on Chrome, Firefox, Safari, and Edge
+- ✅ **Accessibility** — Verified with screen reader and keyboard navigation checks
+
+👉 **[View full testing documentation → TESTING.md](TESTING.md)**
 
 ---
 
